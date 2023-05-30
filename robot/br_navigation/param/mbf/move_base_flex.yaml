@@ -1,0 +1,60 @@
+planners:
+  - name: navfn
+    type: navfn/NavfnROS
+  # - name: global_planner
+  #   type: global_planner/GlobalPlanner
+
+controllers:
+  - name: teb_local_planner
+    type: teb_local_planner/TebLocalPlannerROS
+  - name: dwa_local_planner
+    type: dwa_local_planner/DWAPlannerROS
+  - name: collvoid_dwa_local_planner
+    type: collvoid_dwa_local_planner/CDWAPlannerROS
+  - name: take_lift_planner
+    type: take_lift_planner/TakeLiftPlanner
+
+recovery_behaviors:
+  - name : multiple_recovery
+    type : multiple_recovery/MultipleRecovery
+  - name : super_conservative_reset
+    type : clear_costmap_recovery/ClearCostmapRecovery
+  - name : static_layer_reset
+    type : clear_costmap_recovery/ClearCostmapRecovery
+  - name : conservative_reset
+    type : clear_costmap_recovery/ClearCostmapRecovery
+  - name : rotation_right 
+    type : rotate_recovery/RotateRecovery
+  - name : rotation_left 
+    type : rotate_recovery/RotateRecovery
+  - name : back_reset1
+    type : straight_recovery/StraightRecovery
+  - name : front_reset1
+    type : straight_recovery/StraightRecovery
+  # - name : front_reset2
+  #   type : straight_recovery/StraightRecovery
+  # - name : translation_left
+  #   type : translation_recovery/TranslationRecovery
+  # - name : translation_right
+  #   type : translation_recovery/TranslationRecovery
+  # - name : dwa_recovery_front
+  #   type : dwa_recovery/DwaRecovery
+  # - name : dwa_recovery_back
+  #  type : dwa_recovery/DwaRecovery
+  # - name : multiple_recovery
+  #   type : multiple_recovery/MultipleRecovery
+
+controller_frequency: 10.0
+controller_patience: 8.0
+
+planner_frequency: 1.0
+planner_patience: 5.0
+
+recovery_enabled: true
+recovery_patience: 10.0
+
+oscillation_timeout: 8.0
+oscillation_distance: 0.15
+
+shutdown_costmaps: false
+shutdown_costmaps_delay: 0.2

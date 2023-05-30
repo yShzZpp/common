@@ -1,0 +1,126 @@
+<?xml version="1.0" ?>
+
+<robot name="br" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find br_description)/urdf/common_properties.urdf.xacro"/>
+
+  <!--
+  <xacro:include filename="$(find br_description)/urdf/kobuki_gazebo.urdf.xacro"/>
+  -->
+
+  <!-- buildingrobot -->
+  <xacro:macro name="br">
+    <xacro:property name="M_PI" value="3.141592"/>
+
+    <link name="base_footprint"/>
+
+    <joint name="base_joint" type="fixed">
+      <origin xyz="0 0 0.0" rpy="0 0 0" />
+      <parent link="base_footprint"/>
+      <child link="base_link" />
+    </joint>
+
+    <link name="base_link">
+      <visual>
+        <geometry>
+          <box size="0.749 0.538 0.358" />
+        </geometry>
+        <material name="base_clolor">
+          <color rgba= "0.8 0.8 0.8 0.7"/>
+        </material>
+        <origin xyz="0.0 0 0.189" rpy="0 0 0"/>
+      </visual>
+      <collision name="base">
+        <geometry>
+          <box size="0.749 0.538 0.358" />
+        </geometry>
+        <origin xyz="0.0 0 0.05949" rpy="0 0 0"/>
+      </collision>
+      <inertial>
+        <!-- COM experimentally determined -->
+        <origin xyz="0.01 0 0"/>
+        <mass value="2.4"/> <!-- 2.4/2.6 kg for small/big battery pack -->
+        <inertia ixx="0.019995" ixy="0.0" ixz="0.0"
+                 iyy="0.019995" iyz="0.0"
+                 izz="0.03675" />
+      </inertial>
+    </link>
+<!-- Neck -->
+    <joint name="neck_joint" type="fixed">
+      <origin xyz="0.3745 0 0.358" rpy="0 0 0" />
+      <parent link="base_link"/>
+      <child link="neck_link" />
+    </joint>
+
+    <link name="neck_link">
+      <visual>
+        <geometry>
+          <box size="0.05 0.15 0.304" />
+        </geometry>
+        <material name="base_clolor">
+          <color rgba= "0 0 0 0.5"/>
+        </material>
+        <origin xyz="-0.025 0 0.1502" rpy="0 0 0"/>
+      </visual>
+    </link> 
+
+<!-- Head -->
+     <joint name="head_joint" type="fixed">
+      <origin xyz="0 0 0.304" rpy="0 0 0" />
+      <parent link="neck_link"/>
+      <child link="head_link" />
+    </joint>
+
+    <link name="head_link">
+      <visual>
+        <geometry>
+          <box size="0.05 0.294 0.1" />
+        </geometry>
+        <material name="base_clolor">
+          <color rgba= "0 0 0 0.5"/>
+        </material>
+        <origin xyz="-0.025 0 0.05" rpy="0 0 0"/>
+      </visual>
+    </link> 
+
+
+<!-- Left Wheel -->
+     <joint name="left_wheel_joint" type="fixed">
+      <origin xyz="0 0.145 0.064" rpy="0 0 0" />
+      <parent link="base_link"/>
+      <child link="left_wheel_link" />
+    </joint>
+
+    <link name="left_wheel_link">
+        <visual>
+        <geometry>
+          <cylinder length="0.05" radius="0.08"/>
+        </geometry>
+        <material name="black" >
+          <color rgba= "0 0 0 1"/>
+        </material> 
+        <origin xyz="0 0 0" rpy="${M_PI/2} 0 0"/>
+      </visual>
+    </link> 
+
+<!-- Right Wheel -->
+     <joint name="right_wheel_joint" type="fixed">
+      <origin xyz="0 -0.145 0.064" rpy="0 0 0" />
+      <parent link="base_link"/>
+      <child link="right_wheel_link" />
+    </joint>
+
+    <link name="right_wheel_link">
+       <visual>
+        <geometry>
+          <cylinder length="0.05" radius="0.08"/>
+        </geometry>
+        <material name="black">
+          <color rgba= "0 0 0 1"/>
+        </material> 
+        <origin xyz="0 0 0" rpy="${M_PI/2} 0 0"/>
+      </visual>
+    </link> 
+
+
+  </xacro:macro>
+</robot>

@@ -1,0 +1,18 @@
+<launch>
+<arg name="machine_type"/> 
+
+
+  <!-- 超声波 (ultrasonic)-->
+  <include file="$(find ultrasonic_filter)/launch/ultrasonic_filter.launch" />
+
+  <!-- 传感器 (laser) tf发布节点-->
+  <include file="$(find laser_yaw_calibration)/launch/pub_tf.launch" />
+
+  <!-- 毫米波雷达驱动节点-->
+  <include file="$(find ti_mmwave_rospkg)/launch/radar.launch" />
+
+</launch>
+
+
+
+

@@ -1,0 +1,12 @@
+
+map_topic: "/navigation_map" #"/map"    # 
+map_inflation: 0.4
+map_smoothing: 15
+segment_length: 2.0
+publish_voronoi_map_image: true
+segments_topic: "/segments"
+opt_crossings: 0.2
+opt_end_segments: 0.4
+
+sparse_path_distance: 0.3 
+path_smoother: 0   # 0 : 迭代, 1 二次B样条插值 ,2 三次B样条插值

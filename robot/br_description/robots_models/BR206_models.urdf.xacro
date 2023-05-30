@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+  
+<robot name="BuildingRobot" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:arg name="machine_type" default="" />
+  <xacro:arg name="machine_number" default="" />
+  <xacro:arg name="laser_type" default="double_rplidar" />
+  
+  <xacro:include filename="$(find br_description)/urdf/br_common_library.urdf.xacro" />
+  <xacro:include filename="$(find br_description)/robots_models/$(arg machine_type)/robot_body.urdf.xacro" />
+  <xacro:include filename="$(find br_description)/robots_models/$(arg machine_type)/ultrasonic.urdf.xacro"/>
+  <xacro:include filename="$(find br_description)/robots_models/$(arg machine_type)/ldlidar.urdf.xacro"/>
+
+  <xacro:include filename="$(find br_description)/robots_models/$(arg machine_type)/camera_realsense_horizontal.urdf.xacro"/>
+  <!-- <xacro:include filename="$(find br_description)/robots_models/$(arg machine_type)/mmwave.urdf.xacro"/> -->
+  <xacro:include filename="$(find br_description)/robots_models/$(arg machine_type)/sensors3d.urdf.xacro"/>
+  <xacro:include filename="$(find br_description)/robots_models/$(arg machine_type)/$(arg laser_type).urdf.xacro"/>
+  <!-- <xacro:include filename="$(find br_description)/robots_models/$(arg machine_type)/camera.urdf.xacro"/> -->
+
+  <br/>
+
+  <sensor_laser  parent="base_link" />
+  <ultrasonic parent="base_link" />
+  <infrared parent="base_link" />
+  <camera parent="base_link" />
+  <sensors3d parent="base_link" />
+  <ld06_laser parent="base_link" />
+</robot>

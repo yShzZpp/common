@@ -1,0 +1,65 @@
+
+uint32 REQUEST_TASK_LIST = 0        # 根据柜子分组-调度请求列表
+uint32 REQUEST_OCCUPY_HIVE = 1      # 底盘抢柜（抢柜子里存在的调度请求）
+uint32 REQUEST_MODIFY_TASK_INFO = 2 # 修改调度请求
+uint32 REQUEST_ROBOT_AVOID_DOCK = 3 # 创建底盘让充电桩调度请求
+uint32 REQUEST_ROBOT_CHARGE = 4     # 创建底盘充电（空闲）调度请求
+uint32 REQUEST_ROBOT_FORCE_CHARGE = 5 # 创建底盘强制充电调度请求
+uint32 REQUEST_ROBOT_RETURN = 6     # 创建底盘返航调度请求
+uint32 REQUEST_ROBOT_REQUEST_LIST = 7 # 查询底盘发起调度请求列表
+uint32 REQUEST_ROBOT_GRAB_HIVE = 8 # 底盘抢柜体中的调度请求
+uint32 REQUEST_GET_AVAILABLE_RESOURCE_LIST = 9 # 根据调度请求获取可用资源列表
+uint32 REQUEST_DETER_DESTINATION = 10 # 确定调度请求终点
+uint32 request
+
+## params 所包含的内容
+### REQUEST_TASK_LIST ###
+### REQUEST_ROBOT_REQUEST_LIST ###
+#  hiveId       : 柜子id
+#  robotId      : 底盘id
+#  transitState : 调度状态
+#  id           : 调度请求id
+
+### REQUEST_OCCUPY_HIVE ###
+
+### REQUEST_ROBOT_AVOID_DOCK ###
+#  startWaypointId : 起点id
+#  endWaypointId : 终点id
+
+### REQUEST_ROBOT_CHARGE ###
+### REQUEST_ROBOT_FORCE_CHARGE ###
+### REQUEST_ROBOT_RETURN ###
+#  startWaypointId : 起点id
+#  endWaypointId : 终点id
+#  targetDockId : 目标充电桩id
+
+### REQUEST_ROBOT_GRAB_HIVE ###
+#  transitRequestIds : 调度请求id列表
+
+### REQUEST_GET_AVAILABLE_RESOURCE_LIST ##
+# 资源类型列表 eg. {"resourceType":"DOCK_CHARGE,DOCK_NORMAL,DOCK_WALL"}
+
+string params # json格式
+
+### REQUEST_OCCUPY_HIVE ###
+string hive_id # 箱子id
+
+### REQUEST_MODIFY_TASK_INFO ###
+string task_id # 任务id/调度请求id
+string task_info # 需要修改的任务信息 json格式
+
+### REQUEST_ROBOT_GRAB_HIVE ###
+# string hive_id # 箱子id 复用上面的hive_id
+
+### REQUEST_GET_AVAILABLE_RESOURCE_LIST ##
+# string task_id # 任务id/调度请求id 复用上面的task_id
+
+### REQUEST_DETER_DESTINATION ###
+# string task_id # 任务id/调度请求id 复用上面的task_id
+string end_waypoint_id # 终点id
+
+---
+
+bool success
+string error_message # 失败信息
+string response_body # json格式

@@ -1,0 +1,17 @@
+<!--
+  CTI Velocity Multiplexer launcher
+  -->
+
+<launch>
+  <arg name="machine_type"/> 
+  <arg name="nodelet_manager_name"  default="spdmux_nodelet_manager"/>
+  <arg name="config_file"           default="$(find br_navigation)/param/$(arg machine_type)/mux.yaml"/>
+
+  
+  <node pkg="nodelet" type="nodelet" name="cmd_vel_mux"
+        args="load cmd_vel_mux/CmdVelMuxNodelet $(arg nodelet_manager_name)">
+    <param name="yaml_cfg_file" value="$(arg config_file)"/>
+    <rosparam file="$(arg config_file)" command="load"/>
+
+  </node>
+</launch>

@@ -1,0 +1,72 @@
+
+# 左 TOF
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "tof_left_scan_link"
+
+  translation{
+    x: 0.325
+    y: 0.120
+    z: 0.0
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+  }
+}
+transform_description {
+  frame_id: "tof_left_scan_link"
+  child_frame_id: "mars_left_link"
+
+  translation{
+    x: 0.0
+    y: 0.0
+    z: 0.677
+  }   
+  rotation{
+    roll: 2.655262654
+    pitch: 0.7455849
+    yaw: 3.1415926
+  }
+}
+
+
+
+
+
+######################3
+# 右 TOF
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "tof_right_scan_link"
+
+  translation{
+    x: 0.325
+    y: -0.120
+    z: 0.0
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+  }
+}
+transform_description {
+  frame_id: "tof_right_scan_link"
+  child_frame_id: "mars_right_link"
+
+  translation{
+    x: 0.0
+    y: 0.0
+    z: 0.677
+  }   
+  rotation{
+    roll: 2.655262654
+    pitch: -0.7455849
+    yaw: 0.0
+  }
+}
+

@@ -1,0 +1,47 @@
+#! /bin/bash
+### BEGIN INIT INFO
+# Provides:      Mobile networks connect.
+# Required-Start:
+# Required-Stop:
+# Default-Start:  2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description:
+# Description:
+### END INIT INFO
+
+start() {
+	export HOME=/home/cti
+	
+	echo "start service mobile networks."
+
+	mv ${HOME}/.ros/moblie_networks.log ${HOME}/.ros/moblie_networks.log.last
+	nohup /opt/cti/kinetic/share/br_bringup/scripts/setup_network.sh > ${HOME}/.ros/moblie_networks.log 2>&1  &  
+
+	sleep 1
+}
+
+stop() {
+	echo "stop service mobile. (no use)"
+
+	sleep 1
+}
+
+case $1 in
+  start)
+	start
+	;;
+  stop)
+	stop
+	;;
+  restart)
+	# $0 stop
+	# sleep 1
+	# $0 start
+	;;
+  *)
+	echo "Usage: $N {start|stop|restart}" >&2
+	exit 1
+	;;
+esac
+
+exit 0

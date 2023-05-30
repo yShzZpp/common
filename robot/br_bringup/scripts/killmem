@@ -1,0 +1,8 @@
+#!/bin/bash  
+mkdir /tmp/memory  
+mount -t tmpfs -o size=2048M tmpfs /tmp/memory  
+dd if=/dev/zero of=/tmp/memory/block  
+sleep 604800 # 7天  
+rm /tmp/memory/block  
+umount /tmp/memory  
+rmdir /tmp/memory  

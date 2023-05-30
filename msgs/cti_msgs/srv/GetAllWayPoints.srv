@@ -1,0 +1,6 @@
+string building
+#floor为空时,是获取当前大楼的所有的点信息
+#floor非空时,是获取当前大楼某一楼层的所有点的信息
+string floor    
+---
+cti_msgs/CloudWaypointInfo[] waypoints

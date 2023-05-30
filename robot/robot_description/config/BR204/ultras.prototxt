@@ -1,0 +1,170 @@
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "ultr_head_left"
+
+  translation{
+    x: 0.337
+    y: 0.077
+    z: 0.751
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: -1.483496327
+    yaw: 0.0
+  }
+}
+
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "ultr_head_right"
+
+  translation{
+    x: 0.337
+    y: -0.077
+    z: 0.751
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: -1.483496327
+    yaw: 0.0
+  }
+}
+
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "ultr_front"
+
+  translation{
+    x: 0.356
+    y: 0.0
+    z: 0.5305
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+  }
+}
+
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "ultr_front_left"
+
+  translation{
+    x: 0.3484
+    y: 0.118
+    z: 0.1845
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+  }
+}
+
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "ultr_front_left"
+
+  translation{
+    x: 0.3484
+    y: -0.118
+    z: 0.1845
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+  }
+}
+
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "ultr_left_side_front"
+
+  translation{
+    x: 0.182
+    y: 0.250
+    z: 0.2245
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: 1.570796327
+  }
+}
+
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "ultr_right_side_front"
+
+  translation{
+    x: 0.182
+    y: -0.250
+    z: 0.2245
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: -1.570796327
+  }
+}
+
+
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "ultr_left_side_back"
+
+  translation{
+    x: -0.182
+    y: 0.250
+    z: 0.2243
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: 1.570796327
+  }
+}
+
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "ultr_right_side_back"
+
+  translation{
+    x: -0.182
+    y: -0.250
+    z: 0.2243
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: -1.570796327
+  }
+}
+
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "ultr_back"
+
+  translation{
+    x: -0.3505
+    y: 0.0
+    z: 0.1845
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: 3.1415926
+  }
+}

@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+
+<robot name="sensor_laser" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find br_description)/urdf/properties.urdf.xacro"/>
+
+  <xacro:macro name="sensor_laser" params="parent">
+  <xacro:property name="M_PI" value="3.141592"/>
+
+    <joint name="laser_front_joint" type="fixed">
+   <!--   <origin xyz="0.2775 0.1725 0.26" rpy="0 0 0" />   785398163  0.635398163-->
+      <origin xyz="0.2886 0.189 0.275" rpy="0 0 ${M_PI}" />
+      <parent link="${parent}" />
+      <child link="laser_front" />
+    </joint>
+
+    <link name="laser_front">
+      <visual>
+        <geometry>
+          <!-- <mesh filename="package://br_description/meshes/sick_tim_5xx.stl" /> -->
+          <cylinder length="0.03" radius="0.035"/>
+        </geometry>
+        <material name="red" >
+          <color rgba= "0.8 0 0 0.8"/>
+        </material> 
+      </visual>
+      <inertial>
+        <mass value="0.000001" />
+        <origin xyz="0 0 0" />
+        <inertia ixx="0.0001" ixy="0.0" ixz="0.0"
+          iyy="0.0001" iyz="0.0"
+          izz="0.0001" />
+      </inertial>
+    </link>
+
+    <joint name="laser_rear_joint" type="fixed">
+  <!--    <origin xyz="-0.247 -0.2255 0.26" rpy="0 0 3.1415926" /> -2.278928026 -2.69928026-->
+      <origin xyz="-0.2870 -0.191 0.275" rpy="0 0 0" />
+      <parent link="${parent}" />
+      <child link="laser_rear" />
+    </joint>
+
+    <link name="laser_rear">
+      <visual>
+        <geometry>
+          <cylinder length="0.03" radius="0.035"/>
+        </geometry>
+       <material name="Green" >
+          <color rgba= "0 0 1 1"/>
+        </material>
+      </visual>
+      <inertial>
+        <mass value="0.000001" />
+        <origin xyz="0 0 0" />
+        <inertia ixx="0.0001" ixy="0.0" ixz="0.0"
+          iyy="0.0001" iyz="0.0"
+          izz="0.0001" />
+      </inertial>
+    </link>
+
+    <joint name="laser_merge_joint" type="fixed">
+      <origin xyz="0.0 0.0 0.26" rpy="0 0 0.0" />
+      <parent link="${parent}" />
+      <child link="laser_merge" />
+    </joint>
+
+    <link name="laser_merge">
+      <visual>
+        <geometry>
+          <cylinder length="0.03" radius="0.035"/>
+        </geometry>
+        <material name="Red" >
+        <color rgba= "0 1 0 0.5"/>
+        </material>
+      </visual>
+      <inertial>
+        <mass value="0.000001" />
+        <origin xyz="0 0 0" />
+        <inertia ixx="0.0001" ixy="0.0" ixz="0.0"
+          iyy="0.0001" iyz="0.0"
+          izz="0.0001" />
+      </inertial>
+    </link>
+
+  </xacro:macro>
+  
+</robot>

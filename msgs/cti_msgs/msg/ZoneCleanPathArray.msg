@@ -1,0 +1,1 @@
+cti_msgs/ZoneCleanPath[] clean_path_list

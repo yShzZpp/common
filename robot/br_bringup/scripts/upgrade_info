@@ -1,0 +1,7 @@
+robot_num:666
+robot_model:BR204
+robot_function:0
+upgrade_imme:0
+package:/home/cti/.ros/upgrade/br-robot-release_V6.2.26b.2002261511_amd64.deb
+package_version:6.2.26b
+package_md5:1e44b97fa18463e7fa9cc7f9fce4e47d

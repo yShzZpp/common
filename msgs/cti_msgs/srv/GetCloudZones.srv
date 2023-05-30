@@ -1,0 +1,4 @@
+string building_name
+string floor_name
+---
+cti_msgs/CloudFloorZoneInfo[] infos

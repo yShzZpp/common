@@ -1,0 +1,176 @@
+# 超声波安装方位跟命名参考设计文档
+# 共有10个超声波
+# C1超声波
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "c1_left_front"
+
+  translation{
+    x: 0.5068
+    y: -0.2263
+    z: 0.7724
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: -0.06981316
+    yaw: 0.0
+  }
+}
+# C2超声波
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "c2_left_back"
+
+  translation{
+    x: 0.5068
+    y: 0.2263
+    z: 0.7724
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: -0.06981316
+    yaw: 0.0
+  }
+}
+
+# C3超声波
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "c3_right_back"
+
+  translation{
+    x: 0.4757
+    y: -0.330
+    z: 0.450
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+  }
+}
+
+# C4超声波
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "c4_right_front"
+
+  translation{
+    x: 0.4757
+    y: -0.330
+    z: 0.450
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+  }
+}
+# C5超声波
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "c5_front_right"
+
+  translation{
+    x: 0.539
+    y: 0.0
+    z: 0.3115
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: -0.06981316
+    yaw: 0.0
+  }
+}
+
+
+# C6超声波
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "c6_front_left"
+
+  translation{
+    x: 0.2365
+    y: 0.3445
+    z: 0.2337
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: 1.570796327
+  }
+}
+# C7超声波
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "c7_front_right_mid"
+
+  translation{
+    x: 0.2365
+    y: -0.3445
+    z: 0.2337
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: -1.570796327
+  }
+}
+# C8超声波
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "c8_front_left_mid"
+
+  translation{
+    x: -0.250
+    y: 0.0
+    z: 0.3975
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: 3.1415926
+  }
+}
+# C9超声波
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "c9_front_mid_up"
+
+  translation{
+    x: -0.1832
+    y: 0.330
+    z: 0.450
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+  }
+}
+# C10超声波
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "c10_back_left"
+
+  translation{
+    x: -0.1832
+    y: 0.330
+    z: 0.450
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: 3.1415926
+  }
+}

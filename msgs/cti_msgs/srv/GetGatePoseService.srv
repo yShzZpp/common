@@ -1,0 +1,5 @@
+
+string building_name
+string floor_num
+---
+cti_msgs/CloudGateInfo[] gate_poses

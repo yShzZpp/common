@@ -1,0 +1,28 @@
+# 激光雷达
+static_transform_config {
+    name: "lidar"
+    file_path: "lidar.prototxt"
+    enable: true
+}
+
+# 单目
+static_transform_config {
+    name: "camera"
+    file_path: "camera.prototxt"
+    enable: true
+}
+
+# 双目
+static_transform_config {
+    name: "realsense"
+    file_path: "realsense.prototxt"
+    enable: true
+}
+
+# 超声波
+static_transform_config {
+    name: "ultras"
+    file_path: "ultras.prototxt"
+    enable: true
+}
+

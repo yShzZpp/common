@@ -1,0 +1,57 @@
+<launch>
+
+<!-- 楼宇机器人--> 
+<arg name="machine_type" value="BR204" /> 
+<arg name="machine_number" value="1" />  <!--1 2 3 ... -->
+<arg name="machine_runmode" value="1" /> <!-- 0:导航模式 1:建图模式 2:测试地图模式-->
+
+<param name="virtual_machine" type="bool" value="false"/> <!-- 是否是虚拟机 -->
+
+<!-- 机器人的属性-->
+<param name="robot_attribute/type" type="str" value="$(arg machine_type)" />
+<param name="robot_attribute/number" type="str" value="$(arg machine_number)" />
+<param name="robot_attribute/run_mode" type="int" value="$(arg machine_runmode)" />
+
+<!-- 机器传感器相关 通用 -->
+<include file="$(find br_bringup)/launch/robots/common_sensors.launch" /> 
+<!-- 机器传感器相关 特定机型 -->
+<include file="$(find br_bringup)/launch/robots/$(arg machine_type)/robot_sensors.launch" >
+    <arg name="machine_type" value="$(arg machine_type)" /> 
+</include>
+
+<!-- 机器人结构描述 -->
+<include file="$(find br_description)/launch/robots_models.launch" >
+<arg name="machine_type" value="$(arg machine_type)" />
+<arg name="machine_number" value="$(arg machine_number)" /> 
+<arg name="laser_type" value="double_rplidar" /> 
+</include>
+
+<!-- 机器人底盘驱动 新协议 -->
+<include file="$(find robot_base)/launch/robot_base.launch" >
+    <arg name="machine_type" value="$(arg machine_type)" /> 
+</include>
+
+<!-- 遥控器驱动节点-->
+<include file="$(find teleop_twist_joy)/launch/teleop.launch" />
+
+<!-- 状态机 -->
+<include file="$(find state_machine)/launch/sm.launch" />
+
+<!-- 地图管理-->
+<include file="$(find map_manager)/launch/map_manager.launch" />
+
+<!-- 云平台通信 -->
+<include file="$(find cloud_scheduling_node)/launch/cloud.launch" />
+
+<!-- System Monitor -->
+<include file="$(find system_monitor)/launch/system_monitor.launch"/>
+
+<!-- 状态上报节点 -->
+<include file="$(find back_garden)/launch/back_garden.launch" />
+
+<!-- Navigation Spdmux -->
+<include file="$(find br_navigation)/launch/navigation_spdmux.launch" >
+    <arg name="machine_type" value="$(arg machine_type)" /> 
+</include>
+
+</launch>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="machine_type" /> 
+  <arg name="nodelet_manager_name"  value="spdmux_nodelet_manager"/>
+
+  <node pkg="nodelet" type="nodelet" name="$(arg nodelet_manager_name)" args="manager" output="log"/>
+
+  <include file="$(find br_navigation)/launch/includes/velocity_smoother.launch" >
+    <arg name="machine_type" value="$(arg machine_type)" /> 
+  </include>
+
+  <include file="$(find br_navigation)/launch/includes/safety_controller.launch"/>
+
+  <include file="$(find br_navigation)/launch/includes/cmd_vel_mux.launch" >
+    <arg name="machine_type" value="$(arg machine_type)" /> 
+  </include>
+
+ <!--  <include file="$(find br_navigation)/launch/includes/yocs_velocity_smoother.launch"/>-->
+</launch>

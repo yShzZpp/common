@@ -1,0 +1,70 @@
+# 2个雷达合成laser_merge
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "laser_merge"
+
+  translation{
+    x: 0.0
+    y: 0.0
+    z: 0.271
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+  }
+}
+
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "laser_front"
+
+  translation{
+    x: 0.5035
+    y: 0.0
+    z: 0.271
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: 3.1415926
+  }
+}
+
+# 后激光雷达
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "laser_rear"
+
+  translation{
+    x: -0.2365
+    y: 0.0
+    z: 0.2147
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: 3.1415926
+  }
+}
+
+# 顶部3D 16线雷达
+# transform_description {
+#   frame_id: "base_link"
+#   child_frame_id: "lidar_c16_link"
+# 
+#   translation{
+#     x: 0.284
+#     y: 0.0
+#     z: 1.240
+#   }   
+# 
+#   rotation{
+#     roll: 0.0
+#     pitch: 0.0
+#     yaw: 0.0
+#   }
+# }

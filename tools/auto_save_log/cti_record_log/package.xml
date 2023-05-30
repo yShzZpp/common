@@ -1,0 +1,22 @@
+<package>
+  <name>cti_record_log</name>
+  <version>1.0.0</version>
+  <description>The cti record log moudle</description>
+  <maintainer email="yuxiaolei@ctirobot.com">Yu xiaolei</maintainer>
+  <license>BSD</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>cti_msgs</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>save_crash_log</build_depend>
+  <build_depend>spdlog</build_depend>
+  <build_depend>upload_crash_log</build_depend>
+  <build_depend>share_handle_storage</build_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>cti_msgs</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>save_crash_log</run_depend>
+  <run_depend>spdlog</run_depend>
+  <run_depend>upload_crash_log</run_depend>
+  <run_depend>share_handle_storage</run_depend>
+</package>

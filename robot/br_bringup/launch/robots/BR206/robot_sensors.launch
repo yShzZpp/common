@@ -1,0 +1,15 @@
+<launch>
+  <arg name="machine_type"/> 
+  <include file="$(find lidar_process)/launch/lidar_process.launch" /> 
+
+  <!-- 脖子上的雷达 -->
+  <include file="$(find ldlidar06)/launch/ld06.launch" /> 
+ 
+  <!-- BR206 对应2.4机型  前后思岚雷达 视角不一样 -->
+  <!-- <include file="$(find rplidar_ros)/launch/rplidar_node_v2_BR205.launch" />  -->
+  <include file="$(find rplidar_ros)/launch/rpnode_start_manager.launch" /> 
+
+  <!-- BR206 对应2.5机型  3D结构光传感器 -->
+  <include file="$(find orbbec_camera)/launch/start_camera.launch" /> 
+
+</launch>

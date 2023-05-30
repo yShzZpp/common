@@ -1,0 +1,27 @@
+<launch>
+
+	<!-- <node name="move_base_flex" pkg="mbf_costmap_nav" type="mbf_costmap_nav" required="false" output="screen" clear_params="false" launch-prefix="xterm -e gdb -ex run - -args"> -->
+	<node name="move_base_flex" pkg="mbf_costmap_nav" type="mbf_costmap_nav" required="false" output="screen" clear_params="false"> 
+		<rosparam file="$(find br_navigation)/param/mbf/costmap_common_params.yaml" command="load" ns="global_costmap" />
+		<rosparam file="$(find br_navigation)/param/mbf/costmap_common_params.yaml" command="load" ns="local_costmap" />
+		<rosparam file="$(find br_navigation)/param/mbf/local_costmap_params.yaml" command="load" />
+		<rosparam file="$(find br_navigation)/param/mbf/global_costmap_params.yaml" command="load" />
+		<rosparam file="$(find br_navigation)/param/mbf/navfn_global_planner_params.yaml" command="load"/>
+		<!-- <rosparam file="$(find br_navigation)/param/mbf/navfn_flex_global_planner_params.yaml" command="load"/> -->
+		<rosparam file="$(find br_navigation)/param/mbf/dwa_local_planner_params.yaml" command="load"/>
+		<rosparam file="$(find br_navigation)/param/mbf/teb_local_planner_params.yaml" command="load" />
+		<rosparam file="$(find br_navigation)/param/mbf/cdwa_local_planner_params.yaml" command="load" />
+		<rosparam file="$(find br_navigation)/param/mbf/collvoid_common.yaml" command="load" />
+		<rosparam file="$(find br_navigation)/param/mbf/recovery_params.yaml" command="load"/>
+		<rosparam file="$(find br_navigation)/param/mbf/multiple_recovery_params.yaml" command="load" ns="multiple_recovery" />
+		<rosparam file="$(find br_navigation)/param/mbf/move_base_flex.yaml" command="load"/>
+		<rosparam file="$(find br_navigation)/param/mbf/topo_graph.yaml" command="load"/>
+		<remap from="cmd_vel" to="move_base/raw_cmd_vel"/>
+	</node>
+
+  <!--  rviz send goal -->
+  <include file="$(find mbf_beginner)/launch/rviz_send_goal.launch"/>
+
+  <include file="$(find navigation_controller)/launch/navigation_controller_node.launch"/>
+
+</launch>

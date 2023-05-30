@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+
+<robot name="camera" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find br_description)/urdf/properties.urdf.xacro"/>
+  <!-- <xacro:include filename="$(find br_description)/urdf/realsense_d435.urdf.xacro"/> -->
+
+  <xacro:macro name="camera" params="parent">
+  <xacro:property name="M_PI" value="3.141592"/>
+
+
+    <!-- <joint name="mars_to_base_joint" type="fixed">
+      <origin xyz="0.3515 0 0.3646" rpy="${M_PI*(2/3)} 0 ${M_PI/2}" />
+      <parent link="${parent}" />
+      <child link="mars_link" />
+    </joint> -->
+
+    <!-- Left -->
+    <joint name="tof_left_scan_to_base_joint" type="fixed">
+      <origin xyz="0.325 0.120 0.0" rpy="0 0 0" />
+      <parent link="${parent}" />
+      <child link="tof_left_scan_link" />
+    </joint>
+
+    <link name="tof_left_scan_link">
+    </link>
+
+
+<!-- 25 : 0.43633 -->
+<!-- 41 : 0.7155849 -->
+
+<!-- Left -->
+    <joint name="mars_left_tof" type="fixed">
+      <!-- <origin xyz="0.0 0 0.677" rpy="2.78272 0.229337 3.05652" /> -->
+      <origin xyz="0.0 0 0.677" rpy="${M_PI - 0.48633} 0.7455849 ${M_PI}" />
+      <parent link="tof_left_scan_link" />
+      <child link="mars_left_link" />
+    </joint>
+
+    <link name="mars_left_link">
+       <visual>
+        <geometry>
+          <box size="0.03 0.06 0.01" />
+        </geometry>
+        <material name="white">
+          <color rgba= "0.9 0.9 0.9 0.8"/>
+        </material>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+      </visual>
+    </link>
+
+<!-- Right -->
+    <joint name="tof_right_scan_to_base_joint" type="fixed">
+      <origin xyz="0.325 -0.120 0.0" rpy="0 0 0" />
+      <parent link="${parent}" />
+      <child link="tof_right_scan_link" />
+    </joint>
+
+    <link name="tof_right_scan_link">
+    </link>
+
+<!-- Right -->
+    <joint name="mars_right_tof" type="fixed">
+      <!-- <origin xyz="0.0 0.0 0.677" rpy="2.78272 -0.229337 0.0850694" /> -->
+       <origin xyz="0.0 0.0 0.677" rpy="${M_PI - 0.48633} -0.7455849 0" />
+      <parent link="tof_right_scan_link" />
+      <child link="mars_right_link" />
+    </joint>
+
+    <link name="mars_right_link">
+       <visual>
+        <geometry>
+          <box size="0.03 0.06 0.01" />
+        </geometry>
+        <material name="white">
+          <color rgba= "0.9 0.9 0.9 0.8"/>
+        </material>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+      </visual>
+    </link>
+
+    <!-- <joint name="realsense_camera_to_base_joint" type="fixed">
+      <origin xyz="0.2228 0.0175 0.7445" rpy="0 0 0" />
+      <parent link="${parent}" />
+      <child link="realsense_camera_link" />
+    </joint> -->
+
+    <link name="realsense_scan_link">
+    </link>
+
+    <joint name="realsense_scan_to_base_joint" type="fixed">
+      <origin xyz="0.356 0.0 0.0" rpy="0 0 0" />
+      <parent link="${parent}" />
+      <child link="realsense_scan_link" />
+    </joint>
+
+    <link name="realsense_camera_link">
+    </link>
+
+    <joint name="realsense_camera_to_base_joint" type="fixed">
+      <origin xyz="0.0 0.0 0.5775" rpy="0 0.261799383 0" />
+      <parent link="realsense_scan_link" />
+      <child link="realsense_camera_link" />
+    </joint>
+
+  <!-- <link name="base_link" /> -->
+  <sensor_d435 parent="base_link">
+    <origin xyz="0.3679 0 0.699" rpy="0 0 0"/>
+  </sensor_d435>
+   
+    <joint name="monocular_to_base_joint" type="fixed">
+      <origin xyz="0 -0.255 0.224" rpy="0 0 ${-M_PI/2}" />
+      <parent link="${parent}" />
+      <child link="monocular_link" />
+    </joint>
+
+    <link name="monocular_link">
+     <visual>
+        <geometry>
+          <cylinder length="0.015" radius="0.015"/>
+        </geometry>
+        <material name="back" >
+          <color rgba= "0 0 0 1"/>
+        </material> 
+        <origin xyz="0 0 0" rpy="0 ${M_PI/2} 0"/>
+      </visual>
+    </link>
+
+  </xacro:macro>
+
+</robot>

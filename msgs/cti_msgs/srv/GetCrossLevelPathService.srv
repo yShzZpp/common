@@ -1,0 +1,6 @@
+string building_name
+string org_level
+string des_building_name
+string des_level
+---
+cti_msgs/CrossLevelPathInfo[] paths

@@ -1,0 +1,19 @@
+uint32 version_serial
+uint8 driving_wheel_state
+uint8 driving_wheel_running
+uint8 driving_wheel_cmd
+uint8 driving_wheel_stage
+uint8 plate_state
+uint8 plate_running
+uint8 plate_cmd
+uint8 plate_stage
+uint8 motor_en_state
+uint8 main_mode
+uint8 cmd_updown
+uint8 updown_state
+uint8 led_state
+uint8 light_pct # range: 0~100 percent
+int8 motor_tempr_l
+int8 motor_tempr_r
+int8 bat_temperature
+int8 mcu_temperature

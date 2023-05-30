@@ -1,0 +1,18 @@
+cti_msgs/NavigationDeciderCmd cmd
+cti_msgs/Zone[] zones
+---
+int32 STATES_SUCCESS = 0
+int32 STATES_INVALID = -1
+int32 STATES_RECOVERY_OVERTIMES = -2
+
+int32 status
+---
+#feedback
+uint8 TO_START_POINT = 0
+uint8 FOLLOWING_PATH = 1
+uint8 AVOIDING_OBSTACLE = 2
+uint8 COMPLETED = 3
+
+uint8 completion_rate
+uint8 robot_state
+nav_msgs/Path cleaned_path

@@ -1,0 +1,80 @@
+#   Individual subscriber configuration:
+#   name:           Source name
+#   topic:          The topic that provides cmd_vel messages
+#   timeout:        Time in seconds without incoming messages to consider this topic inactive
+#   priority:       Priority: an UNIQUE unsigned integer from 0 (lowest) to MAX_INT 
+#   short_desc:     Short description (optional)
+
+subscribers:
+
+  - name:        "Default"
+    topic:       "input/default"
+    topic_control: ""
+    timeout:     0.1
+    priority:    0
+    short_desc:  "The default cmd_vel, controllers unaware that we are multiplexing cmd_vel should come here"
+  
+   # 手柄模块下发的 控制指令
+  - name:        "Joystick"
+    topic:       "input/joystick"
+    topic_control: "control/joystick"
+    timeout:     0.1
+    priority:    6
+    short_desc:  "joystick controller"
+
+  # 远程模块下发的 控制指令
+  - name:        "Remote"
+    topic:       "input/remote"
+    topic_control: "control/remote"       
+    timeout:     0.1
+    priority:    5
+
+  # 装卸箱模块下发的 控制指令
+  - name:        "Dock"
+    topic:       "input/docking"
+    topic_control: "control/docking"         
+    timeout:     0.1
+    priority:    4
+
+  # 电梯模块下发的 控制指令
+  - name:        "Elevate"
+    topic:       "input/elevator"
+    topic_control: ""
+    timeout:     0.1
+    priority:    3
+  # 电导航模块下发的 控制指令
+  - name:        "Navigation"
+    topic:       "input/navi"
+    topic_control: ""
+    timeout:     0.5
+    priority:    2
+    short_desc:  "Navigation stack controller"
+
+  # - name:        "WebApp"
+  #   topic:       "input/webapp"
+  #   # webapp下发的 控制底盘指令
+  #   topic_control: "control/webapp"       
+  #   timeout:     0.3
+  #   priority:    1
+
+publisher:       "output/cmd_vel"
+
+# 底盘控制命令输出topic
+pub_control:     "output/control"   
+
+# 订阅主题   直接指明 哪个通道抢占
+preempt_topic:   "switch/preempt_channel"
+
+# 订阅主题   速度调节器   根据通道类别 比例调节速度
+regulator_topic:  "/speed/regulate"   
+
+
+# 当 脖子单点激光检测到台阶 立刻降低速度
+limit_max_vx: 0.2
+
+# 触发单点激光检测到台阶的阈值
+tfmini_left_min_dist: 1.35 # 1.23  触发检测到台阶最小距离
+tfmini_left_min_strength: 150.0 # 2300  # 触发检测到台阶最小强度值
+tfmini_right_min_dist: 1.35 # 1.23
+tfmini_right_min_strength: 150.0 # 2300
+

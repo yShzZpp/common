@@ -1,0 +1,44 @@
+#! /bin/bash
+
+start() {
+	export HOME=/home/cti
+	
+	echo "start service br-robot."
+	
+	# nohup ${HOME}/scripts/BrManager.sh > ${HOME}/.ros/br_manager.log 2>&1  &  
+	nohup /opt/cti/kinetic/share/br_bringup/scripts/BrManager.sh > ${HOME}/.ros/br_manager.log 2>&1  &
+
+	# su cti -c "/opt/cti/kinetic/share/br_bringup/scripts/start_br.sh"
+
+	# sleep 1
+}
+
+stop() {
+	echo "stop service br-robot."
+
+	ps -ef | grep "BrManager" | grep -v grep | cut -c 10-15 | xargs kill -9
+
+	killall roslaunch 
+
+	sleep 10
+}
+
+case $1 in
+  start)
+	start
+	;;
+  stop)
+	stop
+	;;
+  restart)
+	$0 stop
+	sleep 1
+	$0 start
+	;;
+  *)
+	echo "Usage: $N {start|stop|restart}" >&2
+	exit 1
+	;;
+esac
+
+exit 0

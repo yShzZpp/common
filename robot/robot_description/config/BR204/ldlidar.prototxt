@@ -1,0 +1,71 @@
+# 左侧前 10点钟方向
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "ld_left_side"
+
+  translation{
+    x: 0.29584
+    y: 0.21969
+    z: 0.1
+  }   
+
+  rotation{
+    roll: 3.1415926
+    pitch: 0.0
+    yaw: 1.047197533
+  }
+}
+
+# 左前 11点钟方向
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "ld_left_front"
+
+  translation{
+    x: 0.34563
+    y: 0.1178
+    z: 0.1
+  }   
+
+  rotation{
+    roll: 3.1415926
+    pitch: 0.31415926
+    yaw: 0.0
+  }
+}
+
+# 右前 1点钟方向
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "ld_right_front"
+
+  translation{
+    x: 0.34563
+    y: -0.1178
+    z: 0.1
+  }   
+
+  rotation{
+    roll: 3.1415926
+    pitch: 0.31415926
+    yaw: 0.0
+  }
+}
+
+# 右前 2点钟方向
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "ld_right_side"
+
+  translation{
+    x: 0.29584
+    y: -0.21969
+    z: 0.1
+  }   
+
+  rotation{
+    roll: 3.1415926
+    pitch: 0.0
+    yaw: -1.047197533
+  }
+}

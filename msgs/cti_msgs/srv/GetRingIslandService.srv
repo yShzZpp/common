@@ -1,0 +1,6 @@
+# 请求区域的服务
+#　service: /getRingIslands
+---
+# 返回环形岛 区域
+cti_msgs/Zone[] zones  
+

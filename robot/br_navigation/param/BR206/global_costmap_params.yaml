@@ -1,0 +1,22 @@
+global_costmap:
+  # static_layer:
+  #   map_topic: navigation_map
+  global_frame: /map
+  robot_base_frame: /base_footprint
+  update_frequency: 1.0
+  publish_frequency: 1.0 #0.5
+  static_map: true
+  transform_tolerance: 0.5
+  plugins:
+    - {name: static_layer,                  type: "costmap_2d::StaticLayer"}
+    - {name: global_obstacle_layer,         type: "costmap_2d::VoxelLayer"}
+    - {name: realsense_obstacle_layer,      type: "costmap_2d::VoxelLayer"}
+    - {name: tof_obstacle_layer,            type: "costmap_2d::VoxelLayer"}
+    - {name: ultrasonic_obstacle_layer,     type: "costmap_2d::ObstacleLayer"}
+    - {name: radar_obstacle_layer,          type: "costmap_2d::VoxelLayer"}
+    - {name: robots_layer,                  type: "polygon_obstacle_layer::PolygonObstacleLayer"}
+  #     - {name: range_sensor_layer,      type: "range_sensor_layer::RangeSensorLayer"}
+  #     - {name: vectormap_layer,         type: "vectormap_layer::VectorMapLayer"}
+    - {name: dynamic_obstacle_layer,        type: "dynamic_obstacle_layer::DynamicObstacleLayer"}
+    - {name: global_inflation_layer,        type: "costmap_2d::InflationLayer"}
+

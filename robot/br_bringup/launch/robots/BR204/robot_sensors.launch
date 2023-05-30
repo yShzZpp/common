@@ -1,0 +1,12 @@
+<launch>
+    <arg name="machine_type"/> 
+    <include file="$(find lidar_process)/launch/lidar_process.launch" /> 
+
+    <!-- BR204 对应2.3机型 -->
+    <!-- BR204前后思岚雷达 -->
+    <include file="$(find rplidar_ros)/launch/rplidar_node_v2.launch" /> 
+
+    <include file="$(find tof_sdk)/launch/tof_left_right.launch" >
+        <arg name="machine_type" value="$(arg machine_type)" /> 
+    </include>
+</launch>

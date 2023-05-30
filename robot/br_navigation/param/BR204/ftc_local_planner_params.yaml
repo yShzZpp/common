@@ -1,0 +1,13 @@
+ FTCPlannerROS:
+  max_x_vel: 0.3
+  max_rotation_vel: 0.45
+  min_rotation_vel: 0.28
+  acceleration_x: 1.0
+  acceleration_z: 0.5
+  position_accuracy: 0.15
+  rotation_accuracy: 0.2
+  slow_down_factor: 2.5
+  sim_time: 2.0
+  local_planner_frequence: 20
+  join_obstacle: false
+  

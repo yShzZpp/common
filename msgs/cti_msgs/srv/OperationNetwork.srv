@@ -1,0 +1,20 @@
+
+# string CMD_CONNECT =    "connect"
+# string CMD_DISCONNECT = "disconnect"
+# string CMD_ICCID =      "iccid"
+# string CMD_CSQ =        "csq"
+# string CMD_CIMI =       "cimi"
+# string CMD_CPIN =       "cpin"
+
+uint8 CMD_GET_CPIN =       1
+uint8 CMD_GET_ICCID =      2
+uint8 CMD_GET_CSQ =        3
+uint8 CMD_GET_CIMI =       4
+uint8 CMD_GET_NETWORK_STATE =    5
+
+uint8 CMD_CONNECT =    98
+uint8 CMD_DISCONNECT = 99
+
+uint8 cmd
+---
+string response

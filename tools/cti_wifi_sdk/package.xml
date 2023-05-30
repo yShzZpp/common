@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>cti_wifi_sdk</name>
+  <version>0.1.0</version>
+  <description>The cti wifi sdk package</description>
+
+  <maintainer email="yuxiaolei@ctirobot.com">cti</maintainer>
+
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>libnm</build_depend>
+  <build_depend>uuid</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>spdlog</build_depend>
+  <!-- <build_export_depend>roscpp</build_export_depend> -->
+  <exec_depend>libnm</exec_depend>
+  <exec_depend>uuid</exec_depend>
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>spdlog</exec_depend>
+
+  <export> </export>
+</package>

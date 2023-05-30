@@ -1,0 +1,266 @@
+
+decider_map:
+ - {area_bit: [1, 0, 0, 0,  0, 0, 0, 0], behaviors: ["back_reset1"]}
+ - {area_bit: [0, 1, 0, 0,  0, 0, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [0, 0, 1, 0,  0, 0, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [0, 0, 0, 1,  0, 0, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [0, 0, 0, 0,  1, 0, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [0, 0, 0, 0,  0, 1, 0, 0], behaviors: ["back_reset1"]}
+ - {area_bit: [0, 0, 0, 0,  0, 0, 1, 0], behaviors: ["back_reset1"]}
+ - {area_bit: [0, 0, 0, 0,  0, 0, 0, 1], behaviors: ["back_reset1"]}
+
+# 2个区域
+# 0
+ - {area_bit: [1, 1, 0, 0,  0, 0, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [1, 0, 1, 0,  0, 0, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [1, 0, 0, 1,  0, 0, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [1, 0, 0, 0,  1, 0, 0, 0], behaviors: ["rotation_right"]}
+ - {area_bit: [1, 0, 0, 0,  0, 1, 0, 0], behaviors: ["back_reset1"]}
+ - {area_bit: [1, 0, 0, 0,  0, 0, 1, 0], behaviors: ["back_reset1"]}
+ - {area_bit: [1, 0, 0, 0,  0, 0, 0, 1], behaviors: ["back_reset1"]}
+# 1 
+ - {area_bit: [0, 1, 1, 0,  0, 0, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [0, 1, 0, 1,  0, 0, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [0, 1, 0, 0,  1, 0, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [0, 1, 0, 0,  0, 1, 0, 0], behaviors: ["rotation_left"]}
+ - {area_bit: [0, 1, 0, 0,  0, 0, 1, 0], behaviors: ["back_reset1"]}
+ - {area_bit: [0, 1, 0, 0,  0, 0, 0, 1], behaviors: ["back_reset1"]}
+# 2
+ - {area_bit: [0, 0, 1, 1,  0, 0, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [0, 0, 1, 0,  1, 0, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [0, 0, 1, 0,  0, 1, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [0, 0, 1, 0,  0, 0, 1, 0], behaviors: ["translation_left"]} # 有疑问
+ - {area_bit: [0, 0, 1, 0,  0, 0, 0, 1], behaviors: ["translation_right"]} # 有疑问
+# 3
+ - {area_bit: [0, 0, 0, 1,  1, 0, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [0, 0, 0, 1,  0, 1, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [0, 0, 0, 1,  0, 0, 1, 0], behaviors: ["translation_left"]}
+ - {area_bit: [0, 0, 0, 1,  0, 0, 0, 1], behaviors: ["translation_right"]}
+# 4
+ - {area_bit: [0, 0, 0, 0,  1, 1, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [0, 0, 0, 0,  1, 0, 1, 0], behaviors: ["back_reset1"]}
+ - {area_bit: [0, 0, 0, 0,  1, 0, 0, 1], behaviors: ["back_reset1"]}
+# 5
+ - {area_bit: [0, 0, 0, 0,  0, 1, 1, 0], behaviors: ["back_reset1"]}
+ - {area_bit: [0, 0, 0, 0,  0, 1, 0, 1], behaviors: ["back_reset1"]}
+# 6
+ - {area_bit: [0, 0, 0, 0,  0, 0, 1, 1], behaviors: ["back_reset1"]}
+# 3个区域
+# 0
+ - {area_bit: [1, 1, 1, 0,  0, 0, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [1, 1, 0, 1,  0, 0, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [1, 1, 0, 0,  1, 0, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [1, 1, 0, 0,  0, 1, 0, 0], behaviors: ["back_reset1"]}
+ - {area_bit: [1, 1, 0, 0,  0, 0, 1, 0], behaviors: ["back_reset1"]}
+ - {area_bit: [1, 1, 0, 0,  0, 0, 0, 1], behaviors: ["back_reset1"]}
+
+# 3
+ - {area_bit: [1, 0, 1, 1,  0, 0, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [0, 1, 1, 1,  0, 0, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [0, 0, 1, 1,  1, 0, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [0, 0, 1, 1,  0, 1, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [0, 0, 1, 1,  0, 0, 1, 0], behaviors: ["translation_left"]}
+ - {area_bit: [0, 0, 1, 1,  0, 0, 0, 1], behaviors: ["translation_right"]}
+ - {area_bit: [0, 0, 0, 1,  1, 0, 1, 0], behaviors: ["translation_left"]}
+ - {area_bit: [0, 1, 1, 0,  0, 0, 0, 1], behaviors: ["translation_right"]}
+ - {area_bit: [0, 0, 0, 1,  0, 1, 1, 0], behaviors: ["translation_left"]}
+ - {area_bit: [1, 0, 1, 0,  0, 0, 0, 1], behaviors: ["translation_right"]}
+# 4
+ - {area_bit: [1, 0, 0, 0,  1, 1, 0, 0], behaviors: ["back_reset1"]}
+ - {area_bit: [0, 1, 0, 0,  1, 1, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [0, 0, 1, 0,  1, 1, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [0, 0, 0, 1,  1, 1, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [0, 0, 0, 0,  1, 1, 1, 0], behaviors: ["back_reset1"]}
+ - {area_bit: [0, 0, 0, 0,  1, 1, 0, 1], behaviors: ["back_reset1"]}
+
+# 6
+ - {area_bit: [1, 0, 0, 0,  0, 0, 1, 1], behaviors: ["back_reset1"]}
+ - {area_bit: [0, 1, 0, 0,  0, 0, 1, 1], behaviors: ["front_reset1"]}
+ - {area_bit: [0, 0, 1, 0,  0, 0, 1, 1], behaviors: ["front_reset1"]}
+ - {area_bit: [0, 0, 0, 1,  0, 0, 1, 1], behaviors: ["front_reset1"]}
+ - {area_bit: [0, 0, 0, 0,  1, 0, 1, 1], behaviors: ["back_reset1"]}
+ - {area_bit: [0, 0, 0, 0,  0, 1, 1, 1], behaviors: ["back_reset1"]}
+
+# 4个区域
+ - {area_bit: [1, 1, 1, 1,  0, 0, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [0, 1, 1, 1,  1, 0, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [0, 0, 1, 1,  1, 1, 0, 0], behaviors: ["front_reset1"]}
+
+ - {area_bit: [1, 1, 1, 0,  1, 0, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [1, 1, 1, 0,  0, 1, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [1, 1, 0, 1,  1, 0, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [1, 1, 0, 1,  0, 1, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [1, 0, 1, 1,  1, 0, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [1, 0, 1, 1,  0, 1, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [0, 1, 1, 1,  1, 0, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [0, 1, 1, 1,  0, 1, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [1, 0, 1, 0,  1, 1, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [1, 0, 0, 1,  1, 1, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [0, 1, 1, 0,  1, 1, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [0, 1, 0, 1,  1, 1, 0, 0], behaviors: ["front_reset1"]}
+
+ - {area_bit: [0, 0, 0, 0,  1, 1, 1, 1], behaviors: ["back_reset1"]}
+ - {area_bit: [1, 0, 0, 0,  0, 1, 1, 1], behaviors: ["back_reset1"]}
+ - {area_bit: [1, 1, 0, 0,  0, 0, 1, 1], behaviors: ["back_reset1"]}
+
+ - {area_bit: [0, 0, 1, 1,  1, 0, 1, 0], behaviors: ["translation_left"]}
+ - {area_bit: [0, 0, 1, 1,  1, 0, 0, 1], behaviors: ["translation_left"]}
+ - {area_bit: [0, 0, 1, 1,  0, 1, 1, 0], behaviors: ["translation_left"]}
+ - {area_bit: [0, 0, 1, 1,  0, 1, 0, 1], behaviors: ["translation_left"]}
+ - {area_bit: [0, 0, 1, 0,  1, 1, 1, 0], behaviors: ["translation_left"]}
+ - {area_bit: [0, 0, 1, 0,  1, 1, 0, 1], behaviors: ["translation_left"]}
+ - {area_bit: [0, 0, 0, 1,  1, 1, 1, 0], behaviors: ["translation_left"]}
+ - {area_bit: [0, 0, 0, 1,  1, 1, 0, 1], behaviors: ["translation_left"]}
+ - {area_bit: [0, 0, 1, 0,  1, 0, 1, 1], behaviors: ["translation_left"]}
+ - {area_bit: [0, 0, 1, 0,  0, 1, 1, 1], behaviors: ["translation_left"]}
+ - {area_bit: [0, 0, 0, 1,  1, 0, 1, 1], behaviors: ["translation_left"]}
+ - {area_bit: [0, 0, 0, 1,  0, 1, 1, 1], behaviors: ["translation_left"]}
+
+ - {area_bit: [1, 1, 1, 0, 0, 0, 1, 0], behaviors: ["translation_right"]}
+ - {area_bit: [1, 1, 1, 0, 0, 0, 0, 1], behaviors: ["translation_right"]}
+ - {area_bit: [1, 1, 0, 1, 0, 0, 1, 0], behaviors: ["translation_right"]}
+ - {area_bit: [1, 1, 0, 1, 0, 0, 0, 1], behaviors: ["translation_right"]}
+ - {area_bit: [1, 0, 1, 1, 0, 0, 1, 0], behaviors: ["translation_right"]}
+ - {area_bit: [1, 0, 1, 1, 0, 0, 0, 1], behaviors: ["translation_right"]}
+ - {area_bit: [0, 1, 1, 1, 0, 0, 1, 0], behaviors: ["translation_right"]}
+ - {area_bit: [0, 1, 1, 1, 0, 0, 0, 1], behaviors: ["translation_right"]}
+ - {area_bit: [1, 0, 1, 0, 0, 0, 1, 1], behaviors: ["translation_right"]}
+ - {area_bit: [1, 0, 0, 1, 0, 0, 1, 1], behaviors: ["translation_right"]}
+ - {area_bit: [0, 1, 1, 0, 0, 0, 1, 1], behaviors: ["translation_right"]}
+ - {area_bit: [0, 1, 0, 1, 0, 0, 1, 1], behaviors: ["translation_right"]}
+
+
+# 5个区域
+
+ - {area_bit: [0, 1, 1, 1,  1, 1, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [1, 0, 1, 1,  1, 1, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [1, 1, 0, 1,  1, 1, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [1, 1, 1, 0,  1, 1, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [1, 1, 1, 1,  0, 1, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [1, 1, 1, 1,  1, 0, 0, 0], behaviors: ["front_reset1"]}
+
+ - {area_bit: [0, 1, 0, 0, 1, 1,  1, 1], behaviors: ["back_reset1"]}
+ - {area_bit: [1, 0, 0, 0, 1, 1,  1, 1], behaviors: ["back_reset1"]}
+ - {area_bit: [1, 1, 0, 0, 0, 1,  1, 1], behaviors: ["back_reset1"]}
+ - {area_bit: [1, 1, 0, 0, 1, 0,  1, 1], behaviors: ["back_reset1"]}
+ - {area_bit: [1, 1, 0, 0, 1, 1,  0, 1], behaviors: ["back_reset1"]}
+ - {area_bit: [1, 1, 0, 0, 1, 1,  1, 0], behaviors: ["back_reset1"]}
+
+ - {area_bit: [0, 0, 0, 1,  1, 1, 1, 1], behaviors: ["translation_left"]}
+ - {area_bit: [0, 0, 1, 0,  1, 1, 1, 1], behaviors: ["translation_left"]}
+ - {area_bit: [0, 0, 1, 1,  0, 1, 1, 1], behaviors: ["translation_left"]}
+ - {area_bit: [0, 0, 1, 1,  1, 0, 1, 1], behaviors: ["translation_left"]}
+ - {area_bit: [0, 0, 1, 1,  1, 1, 0, 1], behaviors: ["translation_left"]}
+ - {area_bit: [0, 0, 1, 1,  1, 1, 1, 0], behaviors: ["translation_left"]}
+
+ - {area_bit: [0, 1, 1, 1,  0, 0, 1, 1], behaviors: ["translation_right"]}
+ - {area_bit: [1, 0, 1, 1,  0, 0, 1, 1], behaviors: ["translation_right"]}
+ - {area_bit: [1, 1, 0, 1,  0, 0, 1, 1], behaviors: ["translation_right"]}
+ - {area_bit: [1, 1, 1, 0,  0, 0, 1, 1], behaviors: ["translation_right"]}
+ - {area_bit: [1, 1, 1, 1,  0, 0, 0, 1], behaviors: ["translation_right"]}
+ - {area_bit: [1, 1, 1, 1,  0, 0, 1, 0], behaviors: ["translation_right"]}
+
+# 6个区域
+ - {area_bit: [1, 1, 1, 1,  1, 1, 0, 0], behaviors: ["front_reset1"]}
+ - {area_bit: [1, 1, 0, 0,  1, 1, 1, 1], behaviors: ["back_reset1"]}
+ - {area_bit: [1, 1, 1, 1,  0, 0, 1, 1], behaviors: ["translation_right"]}
+ - {area_bit: [0, 0, 1, 1,  1, 1, 1, 1], behaviors: ["translation_left"]}
+
+super_conservative_reset1:
+  reset_distance: 5.0
+  clear_static_layer: false 
+
+static_layer_reset:
+  reset_distance: 2.0
+  clear_static_layer: true
+
+conservative_reset1:
+  reset_distance: 2.0
+  clear_static_layer: false 
+# aggressive_reset1:
+#   reset_distance: 1.0
+
+rotation_left:
+  rotation_angle_list: [ 0.78, -0.78] # 依次旋转的角弧度
+  acc_lim_th: 0.5
+  max_rotational_vel: 0.3
+  min_in_place_rotational_vel: 0.1
+  yaw_goal_tolerance: 0.1
+  rotate_small_enable: true
+
+rotation_right:
+  rotation_angle_list: [ -0.78, 0.39] # 依次旋转的角弧度
+  acc_lim_th: 0.5
+  max_rotational_vel: 0.3
+  min_in_place_rotational_vel: 0.1
+  yaw_goal_tolerance: 0.1
+  rotate_small_enable: true
+
+back_reset1:
+  frequency: 10
+  vel_x: -0.15
+  safty_padding: 0.2
+  step_distance: 0.2
+  over_time: 0.8
+
+front_reset1:
+  frequency: 10
+  vel_x: 0.15
+  safty_padding: 0.2
+  step_distance: 0.2
+  over_time: 0.8
+
+front_reset2:
+  frequency: 10
+  vel_x: 0.15
+  safty_padding: 0.24
+  step_distance: 2.0
+  over_time: 1.0
+
+translation_left:
+  frequency: 10
+  vel_x: 0.15
+  over_time: 30
+  turn_wheel_timeout: 60.0  # 
+  step_distance: 0.3
+
+translation_right:
+  frequency: 10
+  vel_x: 0.15
+  over_time: 30
+  turn_wheel_timeout: 60.0
+  step_distance: -0.3
+
+dwa_recovery_front:
+  over_time: 10
+  over_distance: 0.5
+  frequency: 10
+  sim_time: 1.5
+  min_vel_x: -0.15
+  ref_vex_x: 0.15 # 向前行驶参考速度
+  max_vel_x: 0.15
+  min_rot_vel: -0.45
+  max_rot_vel: 0.45
+  limit_acc_v: 0.4
+  limit_acc_w: 0.4
+  v_resolution: 0.02
+  w_resolution: 0.02
+  reduce_foot_print: 0.1
+  use_acceleration: false
+
+dwa_recovery_back:
+  over_time: 10
+  over_distance: 0.5
+  frequency: 10
+  sim_time: 1.5
+  min_vel_x: -0.15
+  ref_vex_x: -0.15 # 向后行驶参考速度
+  max_vel_x: 0.15
+  min_rot_vel: -0.45
+  max_rot_vel: 0.45
+  limit_acc_v: 0.4
+  limit_acc_w: 0.4
+  v_resolution: 0.02
+  w_resolution: 0.02
+  reduce_foot_print: 0.1
+  use_acceleration: false

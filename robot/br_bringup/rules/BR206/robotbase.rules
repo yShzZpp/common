@@ -1,0 +1,28 @@
+# base
+KERNEL=="ttyUSB*", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", MODE:="0666", GROUP:="dialout",  SYMLINK+="robot_base"
+
+# lidar 
+#KERNEL=="ttyUSB*", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6010", MODE:="0666", GROUP:="dialout",  SYMLINK+="front_lidar"
+KERNEL=="ttyUSB*", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea70", MODE:="0666", GROUP:="dialout",  SYMLINK+="front_lidar"
+#KERNEL=="ttyUSB*", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6011", MODE:="0666", GROUP:="dialout",  SYMLINK+="rear_lidar"
+KERNEL=="ttyUSB*", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea71", MODE:="0666", GROUP:="dialout",  SYMLINK+="rear_lidar"
+KERNEL=="ttyUSB*", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="7523", MODE:="0666", GROUP:="dialout",  SYMLINK+="neck_lidar"
+
+# zigbee
+KERNEL=="ttyUSB*", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", MODE:="0666", GROUP:="dialout",  SYMLINK+="zigbee"
+
+# lora
+KERNEL=="ttyUSB*", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6010", MODE:="0666", GROUP:="dialout",  SYMLINK+="lora"
+# KERNEL=="ttyUSB*", ATTRS{idVendor}=="067b", ATTRS{idProduct}=="2303", MODE:="0666", GROUP:="dialout",  SYMLINK+="lora"
+
+# camera
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="2304", ATTRS{idProduct}=="8981", MODE:="0666", GROUP:="video", SYMLINK+="building_qr_cam"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="2304", ATTRS{idProduct}=="4960", MODE:="0666", GROUP:="video", SYMLINK+="building_qr_cam"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="2304", ATTRS{idProduct}=="4922", MODE:="0666", GROUP:="video", SYMLINK+="building_qr_cam"
+
+# tof 
+# SUBSYSTEMS=="usb", ATTRS{idVendor}=="f700", ATTRS{idProduct}=="3600", MODE:="0666"
+# SUBSYSTEMS=="usb", ATTRS{idVendor}=="f700", ATTRS{idProduct}=="3601", MODE:="0666"
+
+#orbbec camera
+SUBSYSTEM=="usb",  ATTR{idProduct}=="0655", ATTR{idVendor}=="2bc5", MODE:="0666", OWNER:="root", GROUP:="video"

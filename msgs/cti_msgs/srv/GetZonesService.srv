@@ -1,0 +1,11 @@
+# 请求区域的服务
+#　service: /getZones
+
+uint8 REQUEST_ZONE_BY_POINT = 0  # 给定一个点point 请求返回这个点所在的区域
+uint8 REQUEST_ALL_ZONE = 1       # 忽略point      请求返回地图所有的区域
+uint8 request_type  # 服务请求类型
+geometry_msgs/Point point
+---
+cti_msgs/Zone[] zones
+# cti_msgs/ZoneArray zoneA
+

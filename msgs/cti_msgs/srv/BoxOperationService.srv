@@ -1,0 +1,9 @@
+cti_msgs/DistinguishCmd pose
+---
+# 回复状态
+int8 ERROR=-1
+int8 UNPREPARE=0
+int8 PREPARE=1
+int8 COMPLETED=2
+
+int32 state

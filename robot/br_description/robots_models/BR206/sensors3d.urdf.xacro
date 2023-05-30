@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+
+<robot name="sensors3d" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find br_description)/urdf/properties.urdf.xacro"/>
+
+  <xacro:macro name="sensors3d" params="parent">
+  <xacro:property name="M_PI" value="3.141592"/>
+
+
+    <!-- Left -->
+    <joint name="left_scan_to_base_joint" type="fixed">
+      <origin xyz="0.331 0.112 0.0" rpy="0 0 0" />
+      <parent link="${parent}" />
+      <child link="orbbec_scan_left_link" />
+    </joint>
+
+    <link name="orbbec_scan_left_link">
+    </link>
+
+<!-- Left -->
+    <joint name="orbbec_left_joint" type="fixed">
+      <origin xyz="0.0 0 0.675" rpy="-2.29318 0.34069 -1.2083946" />
+      <parent link="orbbec_scan_left_link" />
+      <child link="orbbec_camera_left_link" />
+    </joint>
+
+    <link name="orbbec_camera_left_link">
+       <visual>
+        <geometry>
+          <box size="0.06 0.03 0.01" />
+        </geometry>
+        <material name="white">
+          <color rgba= "0.9 0.9 0.9 0.8"/>
+        </material>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+      </visual>
+    </link>
+
+
+
+<!-- Right -->
+    <joint name="right_scan_to_base_joint" type="fixed">
+      <origin xyz="0.331 -0.112 0.0" rpy="0 0 0" />
+      <parent link="${parent}" />
+      <child link="orbbec_scan_right_link" />
+    </joint>
+
+    <link name="orbbec_scan_right_link">
+    </link>
+
+<!-- Right -->
+    <joint name="orbbec_right_joint" type="fixed">
+      <origin xyz="0.0 0.0 0.675" rpy="2.35619 0.340696 1.2083946" />
+      <parent link="orbbec_scan_right_link" />
+      <child link="orbbec_camera_right_link" />
+    </joint>
+
+    <link name="orbbec_camera_right_link">
+       <visual>
+        <geometry>
+          <box size="0.06 0.03 0.01" />
+        </geometry>
+        <material name="white">
+          <color rgba= "0.9 0.9 0.9 0.8"/>
+        </material>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+      </visual>
+    </link>
+  </xacro:macro>
+
+</robot>

@@ -1,0 +1,13 @@
+string dock_qr							#桩二维码
+---
+string building_uuid					#所属大楼Id
+string building_name					#所属大楼名称
+string floor_uuid						#所属楼层id
+string floor_name						#所属楼层名称
+string dock_uuid						#桩Id
+string dock_name						#桩名称
+string waypoint_uuid					#桩路点Id
+string dock_qr                          #桩二维码
+geometry_msgs/Pose waypoint_pose		#桩路点坐标
+---
+string message							#执行进度提示消息

@@ -1,0 +1,10 @@
+string boxId            #箱id
+---
+bool charging           #是否正在充电
+int8 percentage         #电量百分比值  0~100
+string message          #请求错误时的提示信息
+
+uint8 DOCKON_NOT_EXIST = 0 #兼容旧版本,此字段不存在
+uint8 DOCKON_TRUE = 1   #接触充电桩
+uint8 DOCKON_FALSE = 2  #未接触充电桩
+uint8 dockon            #

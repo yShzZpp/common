@@ -1,0 +1,73 @@
+
+# 左双目
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "realsense_left_scan_link"
+
+  translation{
+    x: 0.545
+    y: 0.200
+    z: 0.
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+  }
+}
+
+
+transform_description {
+  frame_id: "realsense_left_scan_link"
+  child_frame_id: "realsense_left_link"
+
+  translation{
+    x: 0.0
+    y: 0.0
+    z: 0.905
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.436332306
+    yaw: 0.261799383
+  }
+}
+
+
+# 右双目
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "realsense_right_scan_link"
+
+  translation{
+    x: 0.545
+    y: -0.200
+    z: 0.
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+  }
+}
+
+
+transform_description {
+  frame_id: "realsense_right_scan_link"
+  child_frame_id: "realsense_right_link"
+
+  translation{
+    x: 0.0
+    y: 0.0
+    z: 0.905
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.436332306
+    yaw: -0.261799383
+  }
+}

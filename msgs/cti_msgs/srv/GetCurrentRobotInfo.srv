@@ -1,0 +1,10 @@
+---
+uint32 state
+string building_name
+string floor_name
+geometry_msgs/Pose pose
+
+uint32 last_state
+string last_building_name
+string last_floor_name
+geometry_msgs/Pose last_pose

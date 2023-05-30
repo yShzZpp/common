@@ -1,0 +1,89 @@
+# 正前方顶部单目
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "camera_top_front"
+
+  translation{
+    x: 0.384
+    y: 0.0
+    z: 1.177
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+  }
+}
+
+
+# 正前方单目
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "camera_front_link"
+
+  translation{
+    x: 0.562
+    y: 0.0
+    z: 0.555
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+  }
+}
+
+
+# 左前方单目
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "camera_left_link"
+
+  translation{
+    x: 0.376
+    y: 0.340
+    z: 0.600
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: 1.570796327
+  }
+}
+
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "camera_right_link"
+
+  translation{
+    x: 0.376
+    y: -0.340
+    z: 0.600
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: -1.570796327
+  }
+}
+# 对桩的单目
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "monocular_link"
+
+  translation{
+    x: 0.04
+    y: -0.340
+    z: 0.427
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: -1.570796327
+  }
+}

@@ -1,0 +1,21 @@
+VFHPlannerRos:
+  acc_lim_theta_: 0.3
+  acc_lim_x_: 0.2
+  curr_direction_weight: 1
+  goal_weight: 1
+  increase_rate: 1.0
+  local_planner_frequence: 5.0
+  max_vel_th_: 0.55
+  max_vel_x_: 0.4
+  min_in_place_vel_th_: 0.4
+  min_vel_th_: -0.55
+  prev_direction_weight: 2
+  restore_defaults: false
+  smooth_length: 5
+  very_narrow_valley_threshold: 2
+  vfh_sections_number: 72
+  vfh_threshold: 600.0
+  vhf_detection_range: 30.0
+  wide_valley_threshold: 12
+  xy_goal_tolerance_: 0.2
+  yaw_goal_tolerance_: 0.1

@@ -1,0 +1,194 @@
+<launch>
+
+<!-- 楼宇机器人 --> 
+<arg name="machine_type" value="BR204" />
+<arg name="machine_number" value="1" />  <!--1 2 3 ... -->
+<arg name="machine_runmode" value="0" /> <!-- 0:导航模式 1:建图模式 2:测试地图模式-->
+
+<arg name="env_intranet" value="false" /> <!-- 是否是内网环境 -->
+<arg name="env_dispath2" value="false" /> <!-- 是否是调度2.0环境 -->
+<arg name="mbf_enable" value="false" /> <!-- 使用mbf替换掉move_base -->
+<arg name="enable_orb_localizer" value="false" /> <!-- 是否启动orb location-->
+<arg name="enable_wifi" value="true" /> <!-- 是否启用wifi作为常规功能: 热点或者连接电梯 -->
+
+<!-- 机器人的属性-->
+<param name="robot_attribute/type" type="str" value="$(arg machine_type)" />
+<param name="robot_attribute/number" type="str" value="$(arg machine_number)" />
+<param name="robot_attribute/run_mode" type="int" value="$(arg machine_runmode)" />
+<param name="robot_attribute/mbf_enable" type="bool" value="$(arg mbf_enable)" />
+
+<param name="robot_attribute/env_intranet" type="bool" value="$(arg env_intranet)"/>
+<param name="robot_attribute/env_dispath2" type="bool" value="$(arg env_dispath2)"/>
+<param name="robot_attribute/enable_wifi" type="bool" value="$(arg enable_wifi)"/>
+
+<param name="virtual_machine" type="bool" value="false"/> <!-- 是否是虚拟机 -->
+
+<!-- 是否使用迎宾语句-->
+<param name="enable_welcome_sentence" type="bool" value="false" />
+
+<!-- 机器传感器相关 通用 -->
+<include file="$(find br_bringup)/launch/robots/common_sensors.launch" /> 
+<!-- 机器传感器相关 特定机型 -->
+<include file="$(find br_bringup)/launch/robots/$(arg machine_type)/robot_sensors.launch" >
+    <arg name="machine_type" value="$(arg machine_type)" /> 
+</include>
+
+<!-- 机器人结构描述 -->
+<include file="$(find br_description)/launch/robots_models.launch" >
+    <arg name="machine_type" value="$(arg machine_type)" />
+    <arg name="machine_number" value="$(arg machine_number)" /> 
+    <arg name="laser_type" value="double_rplidar" /> 
+</include>
+
+<!-- 机器人底盘驱动 新协议 -->
+<include file="$(find robot_base)/launch/robot_base.launch" >
+    <arg name="machine_type" value="$(arg machine_type)" /> 
+</include>
+
+<!-- realsense -->
+<include file="$(find realsense2_camera)/launch/realsense.launch" > 
+    <arg name="enable_orb_localizer" value="$(arg enable_orb_localizer)" />
+</include>
+
+<!-- 装卸箱 -->
+<include file="$(find robot_docking)/launch/robot_docking.launch"/>
+
+<!-- navi_decider -->
+<include file="$(find navi_decider)/launch/navi_speed_decider.launch" />
+
+<!-- 是否使能梯控自主服务器-->
+<arg name="enable_elevator_apply" value="false" /> 
+<param name="debug/enable_elevator_apply_node" type="bool" value="$(arg enable_elevator_apply)" />
+
+<!-- elevator apply -->
+<include if="$(arg enable_elevator_apply)" 
+         file="$(find apply_elevator)/launch/apply_elevator.launch"/>
+
+<!-- self location manager-->
+<include file="$(find self_location_manager)/launch/self_location_manager.launch" >
+    <arg name="enable_orb_localizer" value="$(arg enable_orb_localizer)" />
+</include>
+
+<!-- zigbee 驱动节点-->
+<include file="$(find zigbee_module_v2)/launch/module.launch" />
+
+<!-- lora manager -->
+<include file="$(find lora)/launch/lora_manager.launch" />
+
+<!-- sensor_manager -->
+<include file="$(find sensor_manager)/launch/sensor_manager.launch" /> 
+
+<!-- 遥控器驱动节点-->
+<include file="$(find teleop_twist_joy)/launch/teleop.launch" />
+
+<!-- Localization (AMCL) -->
+<include file="$(find amcl)/launch/amcl.launch"/>
+
+<group if="$(arg mbf_enable)">
+    <!-- 导航 -->
+    <include file="$(find br_navigation)/launch/navigation_mbf.launch" >
+        <arg name="machine_type" value="$(arg machine_type)" />
+    </include>
+
+    <!-- 进电梯 -->
+    <include file="$(find enter_elevator_mbf)/launch/enter_elevator_mbf.launch" />
+</group>
+
+<group unless="$(arg mbf_enable)">
+    <!-- 导航 -->
+    <include file="$(find br_navigation)/launch/navigation.launch" >
+        <arg name="machine_type" value="$(arg machine_type)" />
+    </include>
+
+    <!-- 进电梯 -->
+    <include file="$(find enter_elevator)/launch/enter_elevator.launch" />
+</group>
+
+<!-- 状态机 -->
+<include file="$(find state_machine)/launch/sm.launch" />
+
+<!-- 地图管理-->
+<include file="$(find map_manager)/launch/map_manager.launch" />
+
+<!-- 梯控 -->
+<group if="$(arg env_dispath2)">
+
+    <include file="$(find elevator_manager_new)/launch/elevator_manager.launch" />
+    
+    <include file="$(find cloud_elevator)/launch/cloud_elevator.launch" />
+    
+</group>
+
+<group unless="$(arg env_dispath2)">
+    <include file="$(find elevator_manager)/launch/elevator_manager.launch" />
+    <!-- <include file="$(find virtual_robot_base)/launch/vir_elevator.launch" /> -->
+</group>
+
+<!-- 记录日志 -->
+<include file="$(find cti_record_log)/launch/record.launch" />
+
+<!-- 云平台通信 -->
+<include file="$(find cloud_scheduling_node)/launch/cloud.launch" />
+
+<!-- 音频 -->
+<include file="$(find sound_manage)/launch/sound_manage.launch" />
+
+<!-- 检测人腿 -->
+<include file="$(find leg_detector)/launch/leg_detector.launch" />
+
+<!-- 激光聚类障碍 -->
+<include file="$(find lidar_cluster_detect)/launch/lidar_cluster_detect.launch" />
+
+<!-- 自动配置 -->
+<include file="$(find auto_config)/launch/new_auto_config.launch" />
+
+<!-- 出电梯 -->
+<include file="$(find leave_elevator)/launch/leave_elevator.launch" />
+
+<!-- 二维码对准 -->
+<include file="$(find cv_qr_code)/launch/new_cv_qr.launch"> 
+    <arg name="machine_type" value="$(arg machine_type)" /> 
+    <arg name="machine_number" value="$(arg machine_number)" /> 
+</include>
+
+<!-- 闸机节点-->
+<include file="$(find security_gate_node)/launch/security_gate_node.launch"/>
+
+<!-- 闸机manager -->
+<include file="$(find security_passageway_manager)/launch/security_passageway_manager.launch" />
+
+<!-- 多车避让 -->
+<include file="$(find local_schedule)/launch/real_car.launch">
+    <arg name="machine_number" value="$(arg machine_number)" />
+</include>
+
+<!-- System Monitor -->
+<include file="$(find system_monitor)/launch/system_monitor.launch"/>
+
+<!-- 状态上报节点 -->
+<include file="$(find back_garden)/launch/back_garden.launch" />
+
+<!-- 敲门功能 -->
+<include file="$(find knock_door)/launch/knock_door.launch" />
+
+<!-- 雷达对比定位 -->
+<include file="$(find laser_relocalization)/launch/laser_relocalization.launch" />
+
+<!-- 备份文件 -->
+<include file="$(find backup_file)/launch/backup_file.launch" />
+
+<!-- 网络管理 -->
+<include file="$(find network_manager)/launch/network_manager.launch" />
+
+<group if="$(arg env_dispath2)">
+    <!-- 调度2.0的接口 -->
+    <include file="$(find dispatch_interface)/launch/dispatch_interface.launch" />
+</group>
+
+<!-- 虚拟Box Manager
+<include file="$(find box_manager)/launch/virtual_box_manager.launch" />
+-->
+<!-- test tool 
+<include file="$(find state_machine)/launch/test_tool.launch"/>
+-->
+</launch>

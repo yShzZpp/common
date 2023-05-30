@@ -1,0 +1,36 @@
+
+# 左双目
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "realsense_scan_link"
+
+  translation{
+    x: 0.356
+    y: 0.0
+    z: 0.0
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+  }
+}
+
+
+transform_description {
+  frame_id: "realsense_scan_link"
+  child_frame_id: "realsense_camera_link"
+
+  translation{
+    x: 0.0
+    y: 0.0
+    z: 0.5775
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+  }
+}

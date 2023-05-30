@@ -1,0 +1,18 @@
+
+# 对桩的单目
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "monocular_link"
+
+  translation{
+    x: 0.04
+    y: -0.255
+    z: 0.224
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: -1.570796327
+  }
+}

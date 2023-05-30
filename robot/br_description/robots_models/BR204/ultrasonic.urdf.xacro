@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+
+<robot name="ultrasonic" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find br_description)/urdf/properties.urdf.xacro"/>
+
+  <xacro:macro name="ultrasonic" params="parent">
+  <xacro:property name="M_PI" value="3.141592"/>
+
+
+   <!-- head left -->
+    <joint name="c1_base_joint" type="fixed">
+      <origin xyz="0.337 0.077 0.751" rpy="0 ${-(M_PI/2 - 0.0873)} ${M_PI}" />
+      <parent link="${parent}" />
+      <child link="c1" />
+    </joint>
+
+    <link name="c1">
+    </link>
+
+   <!-- head right -->
+    <joint name="c2_base_joint" type="fixed">
+      <origin xyz="0.337 -0.077 0.751" rpy="0 ${-(M_PI/2 - 0.0873)} ${M_PI}" />
+      <parent link="${parent}" />
+      <child link="c2" />
+    </joint>
+
+    <link name="c2">
+    </link>
+
+<!-- front -->
+    <joint name="c3_base_joint" type="fixed">
+      <origin xyz="0.356 0.0 0.5305" rpy="0 0 0" />
+      <parent link="${parent}" />
+      <child link="c3" />
+    </joint>
+
+    <link name="c3">
+    </link>
+    
+<!-- left side front -->
+    <joint name="c4_base_joint" type="fixed">
+      <origin xyz="0.182 0.250 0.2245" rpy="0 0 ${M_PI/2}" />
+      <parent link="${parent}" />
+      <child link="c4" />
+    </joint>
+
+    <link name="c4">
+    </link>
+
+<!-- right side front -->
+    <joint name="c5_base_joint" type="fixed">
+      <origin xyz="0.182 -0.250 0.2245" rpy="0 0 ${-M_PI/2}" />
+      <parent link="${parent}" />
+      <child link="c5" />
+    </joint>
+
+    <link name="c5">
+    </link>
+
+    <!-- left side back -->
+    <joint name="c6_base_joint" type="fixed">
+      <origin xyz="-0.180 0.250 0.2243" rpy="0 0 ${M_PI/2}" />
+      <parent link="${parent}" />
+      <child link="c6" />
+    </joint>
+
+    <link name="c6">
+    </link>
+    
+<!-- right side back -->
+     <joint name="c7_base_joint" type="fixed">
+      <origin xyz="-0.180 -0.250 0.2243" rpy="0 0 ${-M_PI/2}" />
+      <parent link="${parent}" />
+      <child link="c7" />
+    </joint>
+
+    <link name="c7">
+    </link>
+
+
+   <!-- c8 no use-->
+     <joint name="c8_base_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 ${M_PI}" />
+      <parent link="${parent}" />
+      <child link="c8" />
+    </joint>
+
+    <link name="c8">
+    </link>
+
+
+     <!-- c9 no use-->
+     <joint name="c9_base_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 ${M_PI}" />
+      <parent link="${parent}" />
+      <child link="c9" />
+    </joint>
+
+    <link name="c9">
+    </link>
+
+  <!-- c10 no use-->
+     <joint name="c10_base_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 ${M_PI}" />
+      <parent link="${parent}" />
+      <child link="c10" />
+    </joint>
+
+    <link name="c10">
+    </link>
+
+</xacro:macro>
+
+</robot>

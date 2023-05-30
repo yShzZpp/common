@@ -1,0 +1,75 @@
+<launch>
+
+  <arg name="config_file" default="$(find cti_record_log)/config/cti_record_config.yaml" />
+
+  <!-- 导航旧的升级包-->
+  <arg name="updatefile_path" default="/var/tmp/candela-ota" />
+  <arg name="old_updatefile_time_interval" default="172800" /> <!-- 2天 2*24*60*60 -->
+
+  <!-- 导航升级过程中产生的中间文件-->
+  <arg name="upgrading_path" default="$(env HOME)/.ros/upgrade" />
+  <arg name="upgrading_redundancy_file_time_interval" default="172800" /> <!-- 2天 2*24*60*60 -->
+
+  <!-- ros 目录下的一些冗余文件-->
+  <arg name="ros_dir_path" default="$(env HOME)/.ros" />
+  <arg name="ros_dir_time_interval" default="172800" /> <!-- 2天 2*24*60*60 -->
+
+  <!-- ros log 的参数-->
+  <arg name="ros_log_path" default="$(env HOME)/.ros/log" />
+  <arg name="time_interval" default="172800" /> <!-- 2天 2*24*60*60 -->
+
+  <!-- cti bag 的参数-->
+  <arg name="all_log_path" default="$(env HOME)/.ros/cti_all_bag" />
+  <arg name="bag_duration" default="3" />
+  <arg name="monitor_interval" default="10" />
+  <arg name="bags_max_size" default="20" />
+
+  <!-- -->
+    <node pkg="cti_record_log" type="record.py" name="cti_record_bag" output="log"/>
+      <param name="config_file" type="str" value="$(arg config_file)" />
+      <param name="all_log_path" type="str" value="$(arg all_log_path)" />
+      <param name="bag_duration" type="int" value="$(arg bag_duration)" />
+
+  <!-- 
+    <node pkg="cti_record_log" type="monitor.py" name="cti_bag_monitor" output="log"/>
+
+      <param name="ros_log_path" type="str" value="$(arg ros_log_path)" />
+      <param name="time_interval" type="int" value="$(arg time_interval)" />
+
+      <param name="all_log_path" type="str" value="$(arg all_log_path)" />
+      <param name="bags_max_size" type="int" value="$(arg bags_max_size)" />
+      <param name="monitor_interval" type="int" value="$(arg monitor_interval)" />
+
+      <param name="updatefile_path" type="str" value="$(arg updatefile_path)" />
+      <param name="old_updatefile_time_interval" type="int" value="$(arg old_updatefile_time_interval)" />
+
+      <param name="ros_dir_path" type="str" value="$(arg ros_dir_path)" />
+      <param name="ros_dir_time_interval" type="int" value="$(arg ros_dir_time_interval)" />
+
+      <param name="upgrading_path" type="str" value="$(arg upgrading_path)" />
+      <param name="upgrading_redundancy_file_time_interval" type="int" value="$(arg upgrading_redundancy_file_time_interval)" />
+  -->
+
+  <node pkg="cti_record_log" type="cti_bag_monitor" name="cti_bag_monitor" output="log">
+    <!-- .ros/ 目录下的一些过期文件-->
+    <param name="ros_dir_path" type="str" value="$(env HOME)/.ros" />
+    <param name="ros_dir_interval" type="int" value="172800" /> <!-- 单位:秒 时长:2天 2*24*60*60 -->
+
+    <!-- .ros/log/ 目录下的一些过期文件和文件夹-->
+    <param name="ros_dir_log_path" type="str" value="$(env HOME)/.ros/log" /> 
+    <param name="ros_dir_log_interval" type="int" value="172800" /> <!-- 单位:秒 时长:2天 2*24*60*60 -->
+
+    <!-- cloud ota的临时升级文件和文件夹-->
+    <param name="cloud_ota_path" type="str" value="/var/tmp/candela-ota" />
+    <param name="cloud_ota_interval" type="int" value="172800" /> <!-- 单位:秒 时长:2天 2*24*60*60 -->
+
+    <!-- 导航 ota的临时升级文件和文件夹-->
+    <param name="navi_ota_path" type="str" value="$(env HOME)/.ros/upgrade" />
+    <param name="navi_ota_interval" type="int" value="172800" /> <!-- 单位:秒 时长:2天 2*24*60*60 -->
+
+    <!-- .ros/cti_all_bag 目录下的一些过期文件-->
+    <param name="bag_path" type="str" value="$(env HOME)/.ros/cti_all_bag" />
+    <param name="bag_interval" type="int" value="600" /> <!-- 单位:秒 10分钟 -->
+    <param name="bags_max_size" type="int" value="20" /> <!-- 单位:G -->
+  </node>
+</launch>

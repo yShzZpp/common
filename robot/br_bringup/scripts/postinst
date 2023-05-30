@@ -1,0 +1,82 @@
+#!/bin/bash	
+
+upgrade_file="/home/cti/.ros/upgrade/upgrade_info"
+
+machine_type="BR204"
+
+echo "update br-robot-release system."
+
+if [ -f $upgrade_file ] ; then
+  while read line
+  do
+    echo $line
+    if [[ "$line" = robot_model* ]]; then
+      machine_type=${line#*:}
+      echo $machine_type
+    fi
+  done < $upgrade_file
+else
+  while :
+  do
+    echo "请输入机器型号:"
+    echo "BR204: 烛光(2.3)"
+    echo "BR205: 烛光(2.4)"
+    echo "BR206: 烛光(新版本)"
+    read machine_type
+    if [[ $machine_type = "BR204" ]] || [[ $machine_type = "BR205" ]] || [[ $machine_type = "BR206" ]] ; then
+      break
+    else
+      echo "当前无 \"$machine_type\" 型号机器,请重新输入"
+    fi
+  done
+
+  # while :
+  # do
+  #   echo "请输入机器编号[0-1000](请根据当前实际机器的编号输入): "
+  #   read machine_no
+  #   if [ $machine_no -ge 0 ] && [ $machine_no -lt 1000 ] ; then
+  #     break
+  #   else
+  #     echo "当前机器编号无效,请重新输入"
+  #   fi
+  # done
+fi
+
+machine_no=789
+machine_frp_num=""
+machine_frp_num=`grep remote_port /etc/cti-frpc.ini | cut -d ' ' -f 3`
+echo ${machine_frp_num}
+if [ -z "$machine_frp_num" ]; then
+  echo "/etc/cti-frpc.ini error"
+else
+  machine_no=$((10#${machine_frp_num}-17000))
+  echo ${machine_no}
+fi
+
+sed -i "4s/value=\"BR20[1-4]\"/value=\"${machine_type}\"/g" /opt/cti/kinetic/share/br_bringup/launch/start_br.launch
+sed -i "4s/value=\"BR20[1-4]\"/value=\"${machine_type}\"/g" /opt/cti/kinetic/share/br_bringup/launch/start_map.launch
+# sed -i "4s/value=\"BR20[1-4]\"/value=\"${machine_type}\"/g" /opt/cti/kinetic/share/br_bringup/launch/start_maptest.launch
+
+sed -i "5s/value=\"1\"/value=\"${machine_no}\"/g" /opt/cti/kinetic/share/br_bringup/launch/start_br.launch
+sed -i "5s/value=\"1\"/value=\"${machine_no}\"/g" /opt/cti/kinetic/share/br_bringup/launch/start_map.launch
+# sed -i "5s/value=\"1\"/value=\"${machine_no}\"/g" /opt/cti/kinetic/share/br_bringup/launch/start_maptest.launch
+
+NoFile="/home/cti/${machine_type}-${machine_no}"
+
+if [ ! -f "${NoFile}" ] ; then
+  touch "${NoFile}"
+  echo "touch file: ${NoFile}"
+fi
+
+chmod +x /opt/cti/kinetic/share/br_bringup/scripts/*
+cp /opt/cti/kinetic/share/br_bringup/scripts/BrManager.sh /home/cti/scripts/
+
+chmod +x /opt/cti/kinetic/share/factory_testing/desktop/factory_test.desktop
+cp /opt/cti/kinetic/share/factory_testing/desktop/factory_test.desktop /home/cti/
+
+if [[ $machine_type = "BR205" ]] ; then
+  cp /opt/cti/kinetic/share/br_bringup/rules/BR205/* /etc/udev/rules.d/
+fi
+
+echo "update ok!"
+

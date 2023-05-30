@@ -1,0 +1,51 @@
+# Default parameters used by the yocs_velocity_smoother module.
+# This isn't used by minimal.launch per se, rather by everything
+# which runs on top.
+
+# Mandatory parameters
+speed_lim_v: 0.8 #0.6 #0.4 #0.8
+speed_lim_w: 0.5 #5.4
+
+accel_lim_v: 0.75 #0.5 #1.0 # maximum is actually 2.0, but we push it down to be smooth
+accel_lim_w: 0.45 #2.0
+
+# Optional parameters
+frequency: 20.0 #20.0
+decel_factor: 2.0 #1.5
+
+# 
+v_bound: 0.2
+w_bound: 2.0
+
+
+# 当机器在旋转角速度达到limit_vx_when_vz_threshold时，
+# 机器线速度限制在limit_vx_when_vz_threshold之内
+max_vx_when_rotation: 0.9
+# 当机器旋转角速度大于limit_vx_when_vz_threshold  开始限制线速度max_vx_when_rotation
+limit_vx_when_vz_threshold: 0.45
+
+# Robot velocity feedback type:
+#  0 - none (default)
+#  1 - odometry
+#  2 - end robot commands
+robot_feedback: 0 #1 #:2
+
+
+small_floor_vx: 0.02      # 
+small_floor_hold_sec: 0.2 # 0.2秒
+target_curren_vx_diff: 0.1 
+
+#  是否使用分段 速度限制
+use_segmentation_spd_limit: false
+
+# spd_w_0: 0.3
+# spd_v_0: 0.75
+
+# spd_w_1: 0.4 
+# spd_v_1: 0.7
+
+# spd_w_2: 0.5
+# spd_v_2: 0.6
+
+# spd_w_3: 0.6 
+# spd_v_3: 0.45

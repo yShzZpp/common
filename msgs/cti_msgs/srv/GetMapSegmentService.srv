@@ -1,0 +1,7 @@
+string building
+string floor
+nav_msgs/OccupancyGrid map
+cti_msgs/SegmentLine[] add_segment_lines
+
+---
+cti_msgs/PolygonArray[] segmented_polygons 

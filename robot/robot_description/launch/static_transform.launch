@@ -1,0 +1,9 @@
+<launch>
+    <arg name="machine_type" default="BR204"/>
+    <node name="static_transform_node" pkg="robot_description" type="static_transform_node"  respawn="false" output="log">
+        <param name="config_file" type="string" value="$(find robot_description)/config/$(arg machine_type)/static_transform_conf.prototxt"/>
+        <param name="frequency" type="double" value="20.0"/>
+        <param name="machine_type" type="string" value="$(arg machine_type)"/>
+    </node>
+
+</launch>

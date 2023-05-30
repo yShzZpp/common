@@ -1,0 +1,5 @@
+<launch>
+    <node pkg="global_planner" type="static_layer_plan" name="static_layer_plan" output="log" >
+        <rosparam command="load" file="$(find br_navigation)/param/BR204/static_layer_plan.yaml" />
+    </node>
+</launch>

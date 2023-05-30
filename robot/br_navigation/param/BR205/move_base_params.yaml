@@ -1,0 +1,31 @@
+# Move base node parameters. For full documentation of the parameters in this file, please see
+#
+#  http://www.ros.org/wiki/move_base
+#
+shutdown_costmaps: false
+
+controller_frequency: 10.0 #5.0
+controller_patience: 5.0
+
+planner_frequency: 5.0 #1.0
+planner_patience: 5.0
+
+oscillation_timeout: 15.0
+oscillation_distance: 0.15
+
+# local planner - default is trajectory rollout
+#base_local_planner: "dwa_local_planner/DWAPlannerROS"
+# base_local_planner: "ftc_local_planner/FTCPlannerROS"
+base_local_planner: "teb_local_planner/TebLocalPlannerROS"
+
+#base_global_planner: "navfn/NavfnROS" #alternatives: global_planner/GlobalPlanner, carrot_planner/CarrotPlanner
+base_global_planner: "global_planner/GlobalPlanner" #alternatives: global_planner/GlobalPlanner, carrot_planner/CarrotPlanner
+
+# open_short_global_plan: true
+on_path_timeout: 1.5 # 0.8 
+distance_threshold: 0.15  #为解决中途到点的问题增加的参数
+padding: 0.02 #短全局路径增加的footprint障碍物判断的膨胀距离
+#We plan to integrate recovery behaviors for robot but currently those belong to gopher and still have to be adapted.
+## recovery behaviors; we avoid spinning, but we need a fall-back replanning
+#recovery_behavior_enabled: false
+

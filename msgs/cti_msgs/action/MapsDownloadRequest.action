@@ -1,0 +1,9 @@
+string[] ids                    #地图文件id集合
+---
+MapDownloadResult[] resultSet   #地图下载结果集
+---
+string message                  #执行过程提示消息
+string currentMapId             #当前正在处理的地图文件id
+string currentMapName           #当前正在处理的地图文件名称
+uint32 total                    #总数量
+uint32 index                    #当前处理的编号（从1开始计数）

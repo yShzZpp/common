@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<robot name="infrared" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find br_description)/urdf/properties.urdf.xacro"/>
+
+  <xacro:macro name="infrared" params="parent">
+  <xacro:property name="M_PI" value="3.141592"/>
+
+
+    <joint name="infrared01_to_base_joint" type="fixed">
+      <origin xyz="0.2975 0.228 0.3135" rpy="0 ${M_PI/2}  0" />
+      <parent link="${parent}" />
+      <child link="infrared_01" />
+    </joint>
+
+    <link name="infrared_01">
+    </link>
+
+    <joint name="infrared02_to_base_joint" type="fixed">
+      <origin xyz="-0.2975 0.228 0.3135" rpy="0 ${M_PI/2} 0.0" />
+      <parent link="${parent}" />
+      <child link="infrared_02" />
+    </joint>
+
+    <link name="infrared_02">
+    </link>
+
+    <joint name="infrared03_to_base_joint" type="fixed">
+      <origin xyz="0.2975 -0.228 0.3135" rpy="0 ${M_PI/2} 0.0" />
+      <parent link="${parent}" />
+      <child link="infrared_03" />
+    </joint>
+
+    <link name="infrared_03">
+    </link>
+
+    <joint name="infrared04_to_base_joint" type="fixed">
+      <origin xyz="-0.2975 -0.228 0.3135" rpy="0 ${M_PI/2} 0.0" />
+      <parent link="${parent}" />
+      <child link="infrared_04" />
+    </joint>
+
+    <link name="infrared_04">
+    </link>
+  </xacro:macro>
+
+</robot>

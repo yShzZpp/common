@@ -1,0 +1,15 @@
+<launch>
+
+  <arg name="machine_type" value="BR205" />
+  <arg name="machine_number" value="101"/> 
+  <arg name="laser_type" value="double_rplidar"/> <!-- double_ydlidar sick_ydlidar single_sick -->
+ 
+  
+  <include file="$(find br_description)/launch/robots_models.launch" >
+    <arg name="machine_type" value="$(arg machine_type)" /> 
+    <arg name="machine_number" value="$(arg machine_number)" /> 
+    <arg name="laser_type" value="$(arg laser_type)" />
+  </include>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find br_description)/rviz/br205_model.rviz"/>
+
+</launch>

@@ -1,0 +1,24 @@
+local_costmap:
+  global_frame: odom
+  robot_base_frame: /base_footprint
+  update_frequency: 8.0
+  publish_frequency: 1.0 #2.0
+  static_map: true
+  rolling_window: true
+  always_send_full_costmap: true
+  width: 5.0
+  height: 5.0
+  resolution: 0.05
+  transform_tolerance: 0.5
+  plugins:
+    - {name: static_layer,                  type: "costmap_2d::StaticLayer"}
+    - {name: local_obstacle_layer,          type: "costmap_2d::VoxelLayer"}
+    - {name: realsense_obstacle_layer,      type: "costmap_2d::VoxelLayer"}
+    - {name: tof_obstacle_layer,            type: "costmap_2d::VoxelLayer"}
+    - {name: ultrasonic_obstacle_layer,     type: "costmap_2d::ObstacleLayer"}
+    - {name: radar_layer,                   type: "costmap_2d::VoxelLayer"}
+    - {name: robots_layer,                  type: "polygon_obstacle_layer::PolygonObstacleLayer"}
+    #    - {name: range_sensor_layer,  type: "range_sensor_layer::RangeSensorLayer"}
+    #    - {name: vectormap_layer,     type: "vectormap_layer::VectorMapLayer"}
+    - {name: dynamic_obstacle_layer,        type: "dynamic_obstacle_layer::DynamicObstacleLayer"}
+    - {name: local_inflation_layer,         type: "costmap_2d::InflationLayer"}

@@ -1,0 +1,8 @@
+int32 VOLUME_SET = 0
+int32 VOLUME_GET = 1
+int32 operation
+int32 set_volume
+---
+bool success
+string error_message
+int32 current_volume

@@ -1,0 +1,13 @@
+syntax = "proto2";
+
+package cti.common;
+
+message StaticTransformFile {
+  optional string name = 1;
+  optional string file_path = 2;                // 加载参数路径
+  optional bool enable = 3;                     // 
+}
+
+message StaticTransformConfig {
+  repeated StaticTransformFile static_transform_config = 1;
+}

@@ -1,0 +1,5 @@
+bool enable
+string str
+---
+bool result
+string error_message

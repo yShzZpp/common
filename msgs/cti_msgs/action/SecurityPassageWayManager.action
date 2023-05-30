@@ -1,0 +1,12 @@
+string ssid
+bool in
+geometry_msgs/Pose cross_goal
+bool goal_is_pose_after_gate
+---
+bool run_success #是否越过闸机
+bool reach_goal  #是否到达目标点
+---
+string RUN_STATE_OPENNING_DOOR = openning_door
+string RUN_STATE_CROSSING = crossing
+string RUN_STATE_RECOVERYING = recoverying
+string run_state

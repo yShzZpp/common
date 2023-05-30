@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package>
+  <name>dbow2</name>
+  <version>1.0.0</version>
+  <description>The abseil_cpp package</description>
+
+  <maintainer email="cti@ctirobot.com">Jinn</maintainer>
+  <license>Apache</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <export>
+
+  </export>
+</package>

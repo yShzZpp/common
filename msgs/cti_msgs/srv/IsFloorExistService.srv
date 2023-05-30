@@ -1,0 +1,5 @@
+string building
+string floor
+uint8 runmode
+---
+bool ret

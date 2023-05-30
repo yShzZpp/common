@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<robot name="ld06_laser" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find br_description)/urdf/properties.urdf.xacro"/>
+
+  <xacro:macro name="ld06_laser" params="parent">
+  <xacro:property name="M_PI" value="3.141592"/>
+
+    <joint name="laser_neck_joint" type="fixed">
+   <!--   <origin xyz="0.2775 0.1725 0.26" rpy="0 0 0" />   785398163  0.635398163-->
+      <origin xyz="0.3775 0.0 0.4085" rpy="${M_PI} ${M_PI/2.0} 0" />
+      <parent link="${parent}" />
+      <child link="laser_neck" />
+    </joint>
+
+    <link name="laser_neck">
+      <visual>
+        <geometry>
+          <!-- <mesh filename="package://br_description/meshes/sick_tim_5xx.stl" /> -->
+          <cylinder length="0.03" radius="0.018"/>
+        </geometry>
+        <material name="black" >
+          <color rgba= "0.0 0 0 0.8"/>
+        </material> 
+      </visual>
+      <inertial>
+        <mass value="0.000001" />
+        <origin xyz="0 0 0" />
+        <inertia ixx="0.0001" ixy="0.0" ixz="0.0"
+          iyy="0.0001" iyz="0.0"
+          izz="0.0001" />
+      </inertial>
+    </link>
+
+  </xacro:macro>
+  
+</robot>

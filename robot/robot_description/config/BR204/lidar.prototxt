@@ -1,0 +1,53 @@
+# 前激光雷达
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "laser_front"
+
+  translation{
+    x: 0.5295
+    y: 0.296
+    z: 0.3755
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: -1.570796327
+  }
+}
+
+# 后激光雷达
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "laser_rear"
+
+  translation{
+    x: -0.2675
+    y: -0.2755
+    z: 0.3755
+  }   
+
+  rotation{
+    roll: 0.3
+    pitch: 0.4
+    yaw: 1.570796327
+  }
+}
+
+# 顶部3D 16线雷达
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "lidar_c16_link"
+
+  translation{
+    x: 0.384
+    y: 0.0
+    z: 1.77
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+  }
+}

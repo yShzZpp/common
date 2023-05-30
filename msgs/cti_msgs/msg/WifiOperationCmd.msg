@@ -1,0 +1,17 @@
+
+uint32 WIFI_OPERATION_OPEN_AP = 0
+uint32 WIFI_OPERATION_CLOSE_AP = 1
+uint32 WIFI_OPERATION_CONNECT_WIFI = 2
+uint32 WIFI_OPERATION_DISCONNECT_WIFI = 3
+uint32 cmd
+
+string ssid
+string password
+
+uint32 WIFI_CONNECTED_MODE_ELEVATOR = 0
+uint32 WIFI_CONNECTED_MODE_SECURITY_GATE = 1
+uint32 WIFI_CONNECTED_TEST = 2
+uint32 WIFI_CONNECTED_NO_USE = 3
+uint32 wifi_connected_mode
+
+string cmd_source_pkg

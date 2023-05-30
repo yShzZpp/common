@@ -1,0 +1,5 @@
+string name
+---
+string park_id
+string park_name
+cti_msgs/CloudBuildingInfo info

@@ -1,0 +1,33 @@
+
+# 抢滩版本,一切参数均未使用
+
+# 播放时长 (未使用)
+float64 play_time
+
+# 播放的音量大小 (未使用)
+uint64 play_volume
+
+# 播放的音频文件 (未使用)
+string PLAY_AUDIO_DEFAULT = default
+string PLAY_AUDIO_KNOCK_AT_DOOR = knock_at_door
+string PLAY_AUDIO_LITTLE_STAR = little_star
+string PLAY_AUDIO_HAPPY_NEW_YEAR = happy_new_year
+string PLAY_AUDIO_MERRY_CHRISTMAS = merry_christmas
+string play_audio
+
+# 门铃的设备通讯类型 (未使用)
+uint16 DOORBELL_DEVICE_LORA = 0
+uint16 DOORBELL_DEVICE_XXXX = 1
+uint16 doorbell_device
+
+# 门铃设备的参数 (未使用)
+## lora门铃: json格式
+# {"carrier_frequency": 427.5, "net_id":15, "mode_id":0, "encrypt_key":"", "decrypt_key":""} # hz和net_id必填, mode_id如没用到可不填
+## xxxx门铃
+string doorbell_params 
+---
+# 敲门成功 or 失败
+bool result
+string errormsg
+---
+string process_information

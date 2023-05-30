@@ -1,0 +1,21 @@
+<launch>
+	
+  <arg name="machine_type"/>  
+  <arg name="machine_number"/>
+  <arg name="laser_type" />
+
+  <arg name="urdf_file" default="$(find xacro)/xacro --inorder '$(find br_description)/robots_models/$(arg machine_type)_models.urdf.xacro' 
+        machine_type:=$(arg machine_type)
+        machine_number:=$(arg machine_number) 
+        laser_type:=$(arg laser_type)"/>
+        
+  <param name="robot_description" command="$(arg urdf_file)"/>
+
+  <!-- <param name="robot/name" value="$(optenv ROBOT kobuki)"/>
+  <param name="robot/type" value="kobuki"/>
+   -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="5.0" />
+    <param name="publish_realtime_frequency" type="double" value="10.0" />
+  </node>
+</launch>

@@ -1,0 +1,15 @@
+#goal definition command:GET_CLEAN_PATH = 1, GET_CLEAN_PATH_LIST = 2, GET_ROADNET_PATH = 3, GET_EULER_LOOP_PATH = 4
+int32 command
+geometry_msgs/PoseStamped start
+geometry_msgs/PoseStamped goal
+---
+#result definition SUCCESS = 0, FAILURE = -1
+int32  error_code
+---
+#feedback
+nav_msgs/Path path
+cti_msgs/ZoneCleanPath[] zone_clean_path_list
+
+# refer to common/proto/error_code.proto
+int32  error_code
+#string error_msg

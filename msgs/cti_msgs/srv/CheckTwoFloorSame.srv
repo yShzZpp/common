@@ -1,0 +1,6 @@
+string a_building
+string a_floor
+string b_building
+string b_floor
+---
+bool same

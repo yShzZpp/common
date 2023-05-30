@@ -1,0 +1,14 @@
+string building # candle
+string floor #candle 
+geometry_msgs/PoseWithCovarianceStamped pose # candle + flash
+string floor_uuid # flash
+---
+string errmsg # candle + flash
+string park_uuid # flash
+string park_name # flash
+string building_uuid # flash
+string building_name # flash
+string floor_uuid # flash
+string floor_name # flash
+string map_uuid # flash
+string map_name # flash

@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+
+<robot name="camera" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find br_description)/urdf/properties.urdf.xacro"/>
+  <!-- <xacro:include filename="$(find br_description)/urdf/realsense_d435.urdf.xacro"/> -->
+
+  <xacro:macro name="camera" params="parent">
+  <xacro:property name="M_PI" value="3.141592"/>
+
+    <link name="realsense_scan_link">
+    </link>
+
+    <joint name="realsense_scan_to_base_joint" type="fixed">
+      <origin xyz="0.353 0.0 0.0" rpy="0 0 0" />
+      <parent link="${parent}" />
+      <child link="realsense_scan_link" />
+    </joint>
+
+    <link name="realsense_camera_link">
+    </link>
+
+    <joint name="realsense_camera_to_base_joint" type="fixed">
+      <origin xyz="0.0 0.0 0.5725" rpy="0 0.0 0" />
+      <parent link="realsense_scan_link" />
+      <child link="realsense_camera_link" />
+    </joint>
+
+  <!-- <link name="base_link" /> -->
+  <sensor_d435 parent="base_link">
+    <origin xyz="0.3679 0 0.699" rpy="0 0 0"/>
+  </sensor_d435>
+   
+    <joint name="monocular_to_base_joint" type="fixed">
+      <origin xyz="0 -0.255 0.224" rpy="0 0 ${-M_PI/2}" />
+      <parent link="${parent}" />
+      <child link="monocular_link" />
+    </joint>
+
+    <link name="monocular_link">
+     <visual>
+        <geometry>
+          <cylinder length="0.015" radius="0.015"/>
+        </geometry>
+        <material name="back" >
+          <color rgba= "0 0 0 1"/>
+        </material> 
+        <origin xyz="0 0 0" rpy="0 ${M_PI/2} 0"/>
+      </visual>
+    </link>
+
+  </xacro:macro>
+
+</robot>

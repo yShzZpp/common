@@ -1,0 +1,46 @@
+<launch>
+
+<!-- BR204 楼宇机器人--> 
+<arg name="machine_type" value="BR204" /> 
+<arg name="machine_number" value="1" />  <!--1 2 3 ... -->
+<arg name="machine_function" value="0" /> <!-- 0:快递/送餐机器人; 1:医疗/消杀机器人; 2:清洁(扫地/擦地)机器人-->
+
+<!-- BR204 double_rplidar-->
+<group if="$(eval arg('machine_type') == 'BR204')">
+    <arg name="sensors" value="double_rplidar"/> <!-- double_ydlidar sick_ydlidar rplidar_ydlidar double_rplidar -->
+
+    <!-- 机器人结构描述 -->
+    <include file="$(find br_description)/launch/robots_models.launch" >
+        <arg name="machine_type" value="$(arg machine_type)" />
+        <arg name="machine_number" value="$(arg machine_number)" /> 
+        <arg name="laser_type" value="$(arg sensors)" /> 
+    </include>
+
+    <!-- 传感器 (laser) tf发布节点-->
+    <include file="$(find laser_yaw_calibration)/launch/pub_tf.launch" />
+
+    <!-- 传感器 (laser) 驱动节点-->
+    <!-- <include file="$(find br_bringup)/launch/robots/$(arg machine_type)/$(arg sensors).launch" /> -->
+
+    <!-- 传感器 (tof 2个) 驱动节点-->
+    <!-- <include file="$(find tof_driver)/launch/tof_left_right.launch" /> -->
+
+    <!-- 毫米波雷达驱动节点-->
+    <!-- <include file="$(find ti_mmwave_rospkg)/launch/1443es1_short_range.launch" /> -->
+</group>
+
+<!-- 虚拟amcl-->
+<node name="virtual_amcl" pkg="multi_map_server" type="virtual_amcl"  respawn="false" output="log" />
+
+<!-- Map server-->
+<node name="map_server" pkg="multi_map_server" type="map_server"  respawn="false" output="log" clear_params="true">
+   <param name="building" value="default"/>
+   <param name="level" type="string" value="6"/>
+   <param name="map_db" value="$(find multi_map_server)/map_db/" />
+</node>
+
+<!-- <node pkg="rosbag" type="play" name="rosbag" args="-\-clock -\-loop /home/cti/_2019-08-01-20-39-54_0.bag" /> -->
+
+<!-- <include file="$(find turtlebot_rviz_launchers)/launch/view_navigation.launch" /> -->
+
+</launch>

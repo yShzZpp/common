@@ -1,0 +1,49 @@
+# 激光雷达
+static_transform_config {
+    name: "lidar"
+    file_path: "lidar.prototxt"
+    enable: false
+}
+
+# 毫米波雷达
+static_transform_config {
+    name: "mmwave"
+    file_path: "mmwave.prototxt"
+    enable: true
+}
+
+# 单目
+static_transform_config {
+    name: "camera"
+    file_path: "camera.prototxt"
+    enable: true
+}
+
+# 双目
+static_transform_config {
+    name: "realsense"
+    file_path: "realsense.prototxt"
+    enable: false
+}
+
+# TOF
+static_transform_config {
+    name: "tof_sensor"
+    file_path: "tof_sensor.prototxt"
+    enable: true
+}
+
+# 超声波
+static_transform_config {
+    name: "ultras"
+    file_path: "ultras.prototxt"
+    enable: true
+}
+
+# 乐动小雷达
+static_transform_config {
+    name: "ldlidar"
+    file_path: "ldlidar.prototxt"
+    enable: true
+}
+

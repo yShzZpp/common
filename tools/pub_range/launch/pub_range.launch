@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="pub_range" type="pub_range_node" name="pub_range_node" output="screen">
+    </node>
+</launch>

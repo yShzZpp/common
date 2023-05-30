@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <arg name="machine_type"/>
+
+  <!-- Map server-->
+  <include file="$(find multi_map_server)/launch/map_server.launch" />
+
+  <!-- Topo graph publisher -->
+  <!-- <include file="$(find topo_publish)/launch/graph_publisher.launch" /> -->
+
+  <!-- Navigation Control-->
+  <include file="$(find navigation_control)/launch/navigation_control.launch"/>
+
+  <!-- Move base -->
+  <include file="$(find br_navigation)/launch/move_base.launch" >
+    <arg name="machine_type" value="$(arg machine_type)" /> 
+  </include>
+
+  <!-- Navigation Spdmux -->
+  <include file="$(find br_navigation)/launch/navigation_spdmux.launch" >
+    <arg name="machine_type" value="$(arg machine_type)" /> 
+  </include>
+
+  <!-- 提供无动态障碍的全局规划地图-->
+  <include file="$(find br_navigation)/launch/static_layer_plan.launch" />
+
+  <!-- <include file="$(find topo_planner)/launch/topo_graph_server.launch" /> -->
+
+</launch>

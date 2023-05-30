@@ -1,0 +1,7 @@
+string building_name         #需要查询的大楼名称
+---
+HubMapInfo[] infos          #查询结果
+---
+string message              #执行进度提示信息
+string buildingName         #当前查询的大楼名称
+string floorName            #当前查询的楼层名称

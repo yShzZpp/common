@@ -1,0 +1,20 @@
+#由相机标定程序生成，也可以自由修改
+camera_id: /dev/v4l/by-id/usb-KINGSEN_KS2A418-60-video-index0 #/dev/building_qr_cam #camera device
+cam_width: 640
+cam_height: 480
+fx: 526.472691
+fy: 526.937466
+cx: 318.264051
+cy: 253.730050
+d0: 0.027600
+d1: -0.067479
+d2: -0.000591
+d3: 0.002263
+d4: 0.000000
+
+dic_id: 7  # default dictionary id
+marker_id: 1 # default marker id
+marker_len: 0.07  # marker size , unit m;
+box_marker_len: 0.07  # 箱子二维码长度 米
+odom_topic: /odom
+show_raw_img: false #是否显示原始图片

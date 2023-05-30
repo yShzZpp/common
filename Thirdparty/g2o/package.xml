@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>g2o</name>
+  <version>2016.4.24</version>
+  <description>The g2o package</description>
+  <maintainer email="cti@ctirobot.com">Jinn</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+</package>

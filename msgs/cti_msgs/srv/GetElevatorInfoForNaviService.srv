@@ -1,0 +1,20 @@
+string building_name #当前楼
+string org_level #当前楼层
+string des_level #目标楼层
+string elevator_id #电梯id
+---
+#上下电梯任务需要传递以下五个点
+geometry_msgs/Pose cwaitpose      #当前楼层地图中等电梯点
+geometry_msgs/Pose cinliftpose    #当前楼层地图中电梯里的目标点
+geometry_msgs/Pose cavoidliftpose #当前楼层地图中进不去电梯,后退(躲避)的点
+geometry_msgs/Pose dinliftpose    #目地楼层地图中电梯里的目标点
+geometry_msgs/Pose doutliftpose   #目地楼层地图中出电梯的目标点
+geometry_msgs/Pose dwaitpose      #目地楼层地图中等电梯的点
+
+#当前进出电梯的方向
+uint32 ELEVATOR_MODE_FORWARD_ENTER_BACK_LEAVE = 0 #前入后出
+uint32 ELEVATOR_MODE_FORWARD_ENTER_FORWARD_LEAVE = 1 #前入前出
+uint32 elevator_mode
+
+#电梯的entity id
+string entity_id

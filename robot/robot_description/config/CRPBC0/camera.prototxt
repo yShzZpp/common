@@ -1,0 +1,36 @@
+# 正前方顶部单目
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "camera_front_link"
+
+  translation{
+    x: 0.540
+    y: 0.0
+    z: 2071
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: -0.03490658
+    yaw: 0.0
+  }
+}
+
+
+# 后方对桩单目
+transform_description {
+  frame_id: "base_link"
+  child_frame_id: "monocular_link"
+
+  translation{
+    x: -0.2465
+    y: 0.0
+    z: 0.4385
+  }   
+
+  rotation{
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+  }
+}

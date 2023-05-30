@@ -1,0 +1,4 @@
+string building
+string floor
+---
+nav_msgs/OccupancyGrid map

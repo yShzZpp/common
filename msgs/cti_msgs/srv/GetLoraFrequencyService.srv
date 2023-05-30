@@ -1,0 +1,7 @@
+#电梯:elevator_id
+#闸机:ssid
+string id 
+---
+float32 frequency
+int32 modeid
+int32 netid

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>sqlite</name>
+  <version>0.0.0</version>
+  <description>The sqlite package</description>
+
+  <maintainer email="yuxiaolei@todo.todo">yuxiaolei</maintainer>
+
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <export>
+  </export>
+</package>
